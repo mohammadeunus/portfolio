@@ -1,0 +1,120 @@
+# Meta Data for SEO
+
+## Homepage
+title = "eunus.dev"
+titleSeparator = "-"
+titleAddition = "home"
+description = ""
+
+## Documentation
+# docsVersion = "0.3"
+
+## Open Graph
+images = ["website-preview.png"]
+ogLocale = "en_US"
+domainTLD = "doks.netlify.app"
+titleHome = "Doks Theme"
+
+
+## JSON-LD
+schemaType = "Person"
+schemaAuthor = "Mohammad Eunus"
+schemaAuthorLinkedIn = "https://www.linkedin.com/in/mohammadeunus"
+schemaAuthorGitHub = "https://github.com/mohammadeunus"
+schemaLocale = "en-US"
+schemaLogo = "logo.png"
+schemaLogoWidth = 512
+schemaLogoHeight = 512
+schemaImage = "website-preview.png"
+schemaImageWidth = 1280
+schemaImageHeight = 640
+schemaLinkedIn = ""
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+smallLimit = "300"
+
+# Images
+imageResponsive = true
+imageConvertTo = "webp"
+imageImageSizes = ["480","720","1080","1280","1600","2048"]
+singleSize = false
+imageAddClass = "img-fluid lazyload blur-up"
+
+### Image template
+defaultImage = "default-image.png" # put in `./assets/images/`
+fillImage = "1270x740 Center" # normalize image size
+
+footer = """
+<div style="position: relative; z-index: 1000;">
+  <a class="text-muted" href="https://portfolio.eunus.dev/">Mohammad Eunus</a> © 2025 |
+  <a href="https://github.com/mohammadeunus" target="_blank" style="margin: 0 5px; position: relative;" aria-label="GitHub">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    </svg>
+  </a>
+  <a href="https://www.linkedin.com/in/mohammadeunus" target="_blank" style="margin-left: 5px; position: relative;" aria-label="LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.85-3.037-1.853 0-2.136 1.447-2.136 2.942v5.664H9.347V9h3.41v1.561h.049c.475-.897 1.637-1.85 3.368-1.85 3.6 0 4.266 2.37 4.266 5.451v6.29zM5.337 7.433c-1.104 0-2-.896-2-2s.896-2 2-2 2 .896 2 2-.895 2-2 2zM6.894 20.452H3.78V9h3.114v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.727v20.546C0 23.225.792 24 1.771 24h20.451C23.2 24 24 23.225 24 22.273V1.727C24 .774 23.2 0 22.222 0z"/>
+    </svg>
+  </a>
+</div>
+"""
+
+
+# Feed
+copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
+
+# Alert
+alert = false
+alertDismissable = true
+# alertText = "Introducing the Doks child theme, several DX + UX updates, and more! <a class=\"alert-link stretched-link\" href=\"https://getdoks.org/blog/doks-v0.2/\" target=\"_blank\" rel=\"noopener\">Check out Doks v0.2</a>"
+alertText = "Introducing the Doks child theme, several DX + UX updates, and more! <a class=\"alert-link stretched-link\" href=\"https://getdoks.org/blog/doks-v0.2/\">Check out Doks v0.2</a>"
+
+# Edit Page
+# repoHost [Github | Gitea | GitLab | Bitbucket | BitbucketServer ] is used for building the edit link based on git hoster
+repoHost = "GitHub"
+#repoHost = "Gitea"
+docsRepo = "https://github.com/h-enk/doks"
+docsRepoBranch = "master"
+docsRepoSubPath = ""
+editPage = false
+lastMod = false
+
+[sections]
+  sectionNav = ["docs", "guides", "notes"]
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  flexSearch = true
+  searchSectionsShow = []
+  searchSectionsIndex = []
+  darkMode = true
+  bootStrapJs = true
+  breadCrumb = false
+  highLight = true
+  kaTex = false
+  multilingualMode = true
+  docsVersioning = false
+  fullWidth = false
+  navbarSticky = true
+  toTopButton = true
+  scrollSpy = false # experimental; needs Bootstrap >= 5.2.0-beta1
+
+[menu]
+  [menu.section]
+    auto = true
+    collapsibleSidebar = true

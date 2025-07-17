@@ -1,0 +1,9 @@
+[[main]]
+  name = "notes"
+  url = "/notes/about/code_of_conduct"
+  weight = 10
+
+[[main]]
+  name = "blogs"
+  url = "/blog"
+  weight = 10
