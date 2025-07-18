@@ -34,3 +34,31 @@
 @import "layouts/pages";
 @import "layouts/posts";
 @import "layouts/sidebar";
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-1000px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.img-animate-left {
+  animation: slideInLeft 2s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lead-fade-in {
+  animation: fadeIn 2s ease 0.3s both;
+}
