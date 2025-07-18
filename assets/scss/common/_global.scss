@@ -195,6 +195,12 @@ body {
   }
 }
 
+.navbar,
+.doks-subnavbar {
+  background-color: transparent !important;
+  border-bottom: 0px;
+}
+
 .navbar a:hover,
 .navbar a:focus {
   text-decoration: none;
