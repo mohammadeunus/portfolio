@@ -25,65 +25,59 @@
   </div>
 </section>
 {{ end }} {{ define "sidebar-prefooter" }}
-<!-- Latest Projects Section -->
-<section class="section">
-  <div class="container-xxl">
-    <div class="row justify-content-center mb-4">
-      <div class="col-18 position-relative">
-        <div class="divider">
-          <span>&nbsp;&nbsp; Latest Projects</span>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img
-            src="/images/screenshot.png"
-            class="card-img-top"
-            alt="Project 1"
-          />
-          <div class="card-body">
-            <h3 class="h5 card-title">ABP Modular Monolith</h3>
-            <p class="card-text">
-              A robust modular monolith built with ABP Framework and .NET,
-              featuring multi-tenancy, DDD, and clean architecture.
-            </p>
-            <a href="#" class="btn btn-link ps-0">View details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="/images/tn.png" class="card-img-top" alt="Project 2" />
-          <div class="card-body">
-            <h3 class="h5 card-title">SaaS Subscription System</h3>
-            <p class="card-text">
-              A custom SaaS platform with subscription management, payment
-              integration, and user analytics dashboard.
-            </p>
-            <a href="#" class="btn btn-link ps-0">View details</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <img src="/images/doks.png" class="card-img-top" alt="Project 3" />
-          <div class="card-body">
-            <h3 class="h5 card-title">Personal Portfolio</h3>
-            <p class="card-text">
-              A modern, responsive portfolio site built with Hugo, featuring
-              dark mode, instant search, and more.
-            </p>
-            <a href="#" class="btn btn-link ps-0">View details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- Work Experience Section -->
+<style>
+.timeline {
+  position: relative;
+  margin: 2rem 0 2rem 1.5rem;
+  padding-left: 2rem;
+  border-left: 3px solid #e0e0e0;
+  border-right: none;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+.timeline-marker {
+  position: absolute;
+  left: -2.7rem;
+  right: auto;
+  top: 0.3rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #0d6efd;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #e0e0e0;
+}
+.timeline-date {
+  position: absolute;
+  left: -9.5rem;
+  right: auto;
+  top: 0.1rem;
+  min-width: 5.5rem;
+  text-align: right;
+  color: #888;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.timeline-content {
+  padding-left: 1.5rem;
+  padding-right: 0;
+  text-align: left;
+}
+.timeline-content h4 {
+  margin-bottom: 0.5rem;
+}
+.timeline-content .project {
+  margin-bottom: 1rem;
+}
+.timeline-content .project h5, .timeline-content .project h6 {
+  margin-bottom: 0.2rem;
+  font-size: 1.1rem;
+  color: #0d6efd;
+}
+</style>
 <section class="section section-md">
   <div class="container-xxl">
     <div class="row justify-content-center mb-4">
@@ -94,42 +88,64 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Senior Software Engineer</h3>
-            <p class="card-text mb-1"><strong>ABC Tech Solutions</strong></p>
-            <p class="card-text text-muted mb-2">2021 - Present</p>
-            <p class="card-text">
-              Leading a team to build scalable SaaS products using .NET, ABP,
-              and Azure.
-            </p>
+      <div class="col-lg-14">
+        <div class="timeline">
+          <!-- Company 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2021 - Present</div>
+            <div class="timeline-content">
+              <h4>ABC Tech Solutions</h4>
+              <div class="role">
+                <h5>Software Engineer ||| <span class="text-muted">(2023 - Present)</span></h5>
+                <div class="project">
+                  <h6>SaaS Product Suite</h6>
+                  <p>Led a team to architect and develop a scalable SaaS platform using .NET, ABP, and Azure. Implemented multi-tenancy, modular design, and CI/CD pipelines. Mentored junior developers and coordinated with cross-functional teams to deliver features on time.</p>
+                </div>
+                <div class="project">
+                  <h6>Internal Tools Modernization</h6>
+                  <p>Oversaw the modernization of internal tools, introducing automated testing and code review practices, and improving maintainability and performance.</p>
+                </div>
+              </div>
+              <div class="role">
+                <h5>Software Engineer <span class="text-muted">(2022 - 2023)</span></h5>
+                <div class="project">
+                  <h6>Customer Analytics Dashboard</h6>
+                  <p>Developed a real-time analytics dashboard for SaaS customers, integrating data visualization and reporting features. Collaborated with product managers to define requirements and deliver user-centric solutions.</p>
+                </div>
+              </div>
+              <div class="role">
+                <h5>Junior Software Engineer <span class="text-muted">(2021 - 2022)</span></h5>
+                <div class="project">
+                  <h6>Onboarding Automation</h6>
+                  <p>Automated the onboarding process for new clients, reducing manual work and improving customer satisfaction. Assisted in bug fixing and feature enhancements across multiple projects.</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Software Engineer</h3>
-            <p class="card-text mb-1"><strong>XYZ Innovations</strong></p>
-            <p class="card-text text-muted mb-2">2018 - 2021</p>
-            <p class="card-text">
-              Developed enterprise applications and contributed to open-source
-              .NET projects.
-            </p>
+          <!-- Company 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2018 - 2021</div>
+            <div class="timeline-content">
+              <h4>XYZ Innovations</h4>
+              <div class="project">
+                <h5>Enterprise Resource Planning (ERP) System</h5>
+                <p>Developed core modules for a large-scale ERP system in .NET. Focused on business logic, API design, and integration with third-party services. Contributed to open-source .NET projects and improved system documentation.</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h3 class="h5 card-title">Junior Developer</h3>
-            <p class="card-text mb-1"><strong>Startup Hub</strong></p>
-            <p class="card-text text-muted mb-2">2016 - 2018</p>
-            <p class="card-text">
-              Worked on web and mobile apps, learning best practices in software
-              engineering.
-            </p>
+          <!-- Company 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2016 - 2018</div>
+            <div class="timeline-content">
+              <h4>Startup Hub</h4>
+              <div class="project">
+                <h5>Mobile & Web App Launches</h5>
+                <p>Worked on multiple startup projects, building MVPs for web and mobile. Gained hands-on experience in frontend and backend development, and learned best practices in agile software engineering.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
