@@ -105,7 +105,7 @@
             <div class="timeline-content">
               <h4>Wafi Solutions</h4>
               <div class="project">
-                <h5>Software Engineer L3</h5>
+                <h5>Software Engineer L3 <span class="text-muted">— Full‑time, Onsite</span></h5>
                 <p>Built Angular/Blazor component libraries and ABP templates that standardized UI/CRUD patterns and accelerated onboarding.</p>
                 <p>Led monolith → modular monolith migration across Sales/Inventory/CRM for reuse and clearer ownership; improved delivery and maintainability.</p>
                 <p>Delivered Hotel Management SaaS modules on ABP + Postgres with DDD boundaries and integration tests; mentored interns/juniors and improved reviews/docs/workflows.</p>
@@ -116,7 +116,7 @@
           <!-- Wafi Solutions — Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date">2022 – 2023</div>
+            <div class="timeline-date">May, 2025</div>
             <div class="timeline-content">
               <div class="project">
                 <h5>Software Engineer</h5>
@@ -130,7 +130,7 @@
           <!-- Wafi Solutions — Junior Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date">2021 – 2022</div>
+            <div class="timeline-date">Nov, 2024</div>
             <div class="timeline-content">
               <div class="project">
                 <h5>Junior Software Engineer</h5>
@@ -237,40 +237,84 @@
         </div>
       </div>
     </div>
-    {{ $posts := first 4 (where .Site.RegularPages "Section" "blog") }}
     <div class="row justify-content-center">
       <div class="col-lg-14">
         <div class="post-list">
-          {{ if gt (len $posts) 0 }} {{ range $posts }}
-          <article class="post-list-item">
-            <h3 class="h5 mb-1">
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </h3>
-            <div class="text-muted small mb-2">
-              {{ .Date.Format "Jan 02, 2006" }}
-            </div>
-            <p class="mb-0">
-              {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}
-            </p>
-          </article>
-          {{ end }} {{ else }}
-          <!-- Fallback static list when no `blog` section exists -->
-          <article class="post-list-item">
-            <h3 class="h5 mb-1">Building Modular Monoliths with ABP</h3>
-            <div class="text-muted small mb-2">May 10, 2024</div>
-            <p class="mb-0">
-              A practical walkthrough of modular monoliths on the ABP Framework
-              and .NET 8.
-            </p>
-          </article>
-          <article class="post-list-item">
-            <h3 class="h5 mb-1">Clean Architecture, Pragmatically</h3>
-            <div class="text-muted small mb-2">Apr 22, 2024</div>
-            <p class="mb-0">
-              Real-world lessons learned applying clean architecture to
-              production services.
-            </p>
-          </article>
+          {{/* Try to fetch latest posts from eunus.dev/blog/index.html */}}
+          {{ $feedURL := "https://eunus.dev/blog/index.html" }}
+          {{ $remote := resources.GetRemote $feedURL }}
+          {{ $html := cond (ne $remote nil) (string $remote.Content) "" }}
+          {{/* Try to discover an alternate RSS/Atom link in the HTML head */}}
+          {{ $altLinks := cond (ne $html "") (findRE `(?is)<link[^>]+rel=\"alternate\"[^>]+href=\"([^\"]+)\"` $html) (slice) }}
+          {{ $altHref := "" }}
+          {{ if gt (len $altLinks) 0 }}
+            {{ $altHref = replaceRE `(?is).*href=\"([^\"]+)\".*` "$1" (index $altLinks 0) }}
+          {{ end }}
+
+          {{ $rendered := false }}
+          {{ if ne $altHref "" }}
+            {{ $altAbs := cond (hasPrefix $altHref "http") $altHref (print "https://eunus.dev" $altHref) }}
+            {{ $rss := resources.GetRemote $altAbs }}
+            {{ $parsed := cond (ne $rss nil) (transform.Unmarshal $rss) nil }}
+            {{ $items := slice }}
+            {{ if and $parsed (isset $parsed "rss") }}
+              {{ $items = index (index $parsed "rss") "channel" "item" }}
+            {{ else if and $parsed (isset $parsed "feed") }}
+              {{ $items = index $parsed "feed" "entry" }}
+            {{ end }}
+            {{ if gt (len $items) 0 }}
+              {{ $rendered = true }}
+              {{ range first 4 $items }}
+                {{ $title := or (index . "title") "Untitled" }}
+                {{ $desc := or (index . "description") (index . "summary") }}
+                {{ $date := or (index . "pubDate") (index . "updated") (index . "published") }}
+                {{ $href := or (index . "link") (index . "id") }}
+                <article class="post-list-item">
+                  <h3 class="h5 mb-1"><a href="{{ $href }}" target="_blank" rel="noopener">{{ $title }}</a></h3>
+                  {{ if $date }}<div class="text-muted small mb-2">{{ $date }}</div>{{ end }}
+                  {{ if $desc }}<p class="mb-0">{{ $desc | plainify }}</p>{{ end }}
+                </article>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+
+          {{ if not $rendered }}
+            {{/* Fallback: scrape anchors to blog posts from HTML */}}
+            {{ $itemsRaw := cond (ne $html "") (findRE `(?is)<a[^>]+href=\"(/blog/[^\"]+)\"[^>]*>([^<]+)</a>` $html) (slice) }}
+            {{ if gt (len $itemsRaw) 0 }}
+              {{ range first 4 $itemsRaw }}
+                {{ $href := replaceRE `(?is).*href=\"([^\"]+)\".*` "$1" . }}
+                {{ $title := replaceRE `(?is).*?>\\s*([^<]+)\\s*</a>.*` "$1" . }}
+                <article class="post-list-item">
+                  <h3 class="h5 mb-1"><a href="https://eunus.dev{{ $href }}" target="_blank" rel="noopener">{{ $title }}</a></h3>
+                </article>
+              {{ end }}
+            {{ else }}
+              {{/* Fallback to internal posts if remote not usable */}}
+            {{/* Fallback to internal posts if remote feed unavailable */}}
+            {{ $posts := first 4 (where .Site.RegularPages "Section" "blog") }}
+            {{ if gt (len $posts) 0 }}
+              {{ range $posts }}
+              <article class="post-list-item">
+                <h3 class="h5 mb-1"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <div class="text-muted small mb-2">{{ .Date.Format "Jan 02, 2006" }}</div>
+                <p class="mb-0">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+              </article>
+              {{ end }}
+            {{ else }}
+              <!-- Static fallback when no posts found -->
+              <article class="post-list-item">
+                <h3 class="h5 mb-1">Building Modular Monoliths with ABP</h3>
+                <div class="text-muted small mb-2">May 10, 2024</div>
+                <p class="mb-0">A practical walkthrough of modular monoliths on the ABP Framework and .NET 8.</p>
+              </article>
+              <article class="post-list-item">
+                <h3 class="h5 mb-1">Clean Architecture, Pragmatically</h3>
+                <div class="text-muted small mb-2">Apr 22, 2024</div>
+                <p class="mb-0">Real-world lessons learned applying clean architecture to production services.</p>
+              </article>
+            {{ end }}
+            {{ end }}
           {{ end }}
         </div>
       </div>
