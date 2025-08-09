@@ -16,7 +16,7 @@
       <p class="h5 text-muted mb-3">Software Engineer — ABP/.NET specialist building scalable SaaS</p>
       <p class="lead mb-3">I design and ship maintainable, multi-tenant SaaS platforms with a strong focus on modular architecture, reliability, and developer experience.</p>
       <ul class="list-inline text-muted small mb-3">
-        <li class="list-inline-item">7+ years</li>
+        <li class="list-inline-item">2+ years</li>
         <li class="list-inline-item">12 SaaS launches</li>
         <li class="list-inline-item">Azure • ABP • .NET</li>
       </ul>
@@ -36,44 +36,48 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      {{ $projects := first 6 (where .Site.RegularPages "Section" "projects") }}
-      {{ if gt (len $projects) 0 }}
-        {{ range $projects }}
-        <div class="col-md-6 col-lg-6 mb-4">
-          <a class="card h-100 shadow-sm text-decoration-none" href="{{ .RelPermalink }}">
-            <div class="card-body">
-              <h3 class="h6 mb-2">{{ .Title }}</h3>
-              {{ with .Params.stack }}<p class="text-muted small mb-2">{{ delimit . " • " }}</p>{{ end }}
-              <p class="mb-3">{{ with .Params.teaser }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
-              {{ with .Params.impact }}<span class="badge bg-success-subtle text-success">Impact: {{ . }}</span>{{ end }}
+    {{ $projects := first 6 (where .Site.RegularPages "Section" "projects") }}
+    <div class="row justify-content-center">
+      <div class="col-lg-14">
+        <div class="projects-list">
+          {{ if gt (len $projects) 0 }}
+            {{ range $projects }}
+            <a class="project-row" href="{{ .RelPermalink }}">
+              <div class="project-row-main">
+                <h3 class="h6 project-title mb-1">{{ .Title }}</h3>
+                {{ with .Params.stack }}<div class="project-stack small text-muted">{{ delimit . " • " }}</div>{{ end }}
+              </div>
+              <div class="project-row-meta">
+                <p class="mb-1">{{ with .Params.teaser }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+                {{ with .Params.impact }}<span class="impact-badge">Impact: {{ . }}</span>{{ end }}
+              </div>
+            </a>
+            {{ end }}
+          {{ else }}
+            <!-- Fallback static projects when no `projects` section exists -->
+            <div class="project-row">
+              <div class="project-row-main">
+                <h3 class="h6 project-title mb-1">SaaS Product Suite</h3>
+                <div class="project-stack small text-muted">ABP • .NET 8 • Azure • PostgreSQL</div>
+              </div>
+              <div class="project-row-meta">
+                <p class="mb-1">Multi-tenant platform with modular architecture, SSO, metered billing, and observability.</p>
+                <span class="impact-badge">Impact: 99.95% uptime • 30% faster releases</span>
+              </div>
             </div>
-          </a>
-        </div>
-        {{ end }}
-      {{ else }}
-        <!-- Fallback static projects when no `projects` section exists -->
-        <div class="col-md-6 col-lg-6 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h6 mb-2">SaaS Product Suite</h3>
-              <p class="text-muted small mb-2">ABP • .NET 8 • Azure • PostgreSQL</p>
-              <p class="mb-3">Multi-tenant platform with modular architecture, SSO, metered billing, and observability.</p>
-              <span class="badge bg-success-subtle text-success">Impact: 99.95% uptime • 30% faster releases</span>
+            <div class="project-row">
+              <div class="project-row-main">
+                <h3 class="h6 project-title mb-1">Customer Analytics Dashboard</h3>
+                <div class="project-stack small text-muted">.NET Web API • Angular • SignalR</div>
+              </div>
+              <div class="project-row-meta">
+                <p class="mb-1">Real-time analytics with role-based access, scheduled reports, and interactive charts.</p>
+                <span class="impact-badge">Impact: +18% user engagement</span>
+              </div>
             </div>
-          </div>
+          {{ end }}
         </div>
-        <div class="col-md-6 col-lg-6 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h6 mb-2">Customer Analytics Dashboard</h3>
-              <p class="text-muted small mb-2">.NET Web API • Angular • SignalR</p>
-              <p class="mb-3">Real-time analytics with role-based access, scheduled reports, and interactive charts.</p>
-              <span class="badge bg-success-subtle text-success">Impact: +18% user engagement</span>
-            </div>
-          </div>
-        </div>
-      {{ end }}
+      </div>
     </div>
   </div>
 </section>
@@ -161,20 +165,16 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-6 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <p class="mb-2">“Eunus consistently elevates the bar. His architectural choices and pragmatic execution helped us deliver reliably and faster.”</p>
-            <p class="text-muted small mb-0">— Engineering Manager, Wafi Solutions</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 mb-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <p class="mb-2">“A rare blend of system design and hands‑on delivery. Our analytics initiative wouldn’t have succeeded without him.”</p>
-            <p class="text-muted small mb-0">— Product Manager, SaaS Platform</p>
-          </div>
+      <div class="col-lg-12">
+        <div class="quotes">
+          <figure class="quote mb-4">
+            <blockquote>“Eunus consistently elevates the bar. His architectural choices and pragmatic execution helped us deliver reliably and faster.”</blockquote>
+            <figcaption class="text-muted small">— Engineering Manager, Wafi Solutions</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote>“A rare blend of system design and hands‑on delivery. Our analytics initiative wouldn’t have succeeded without him.”</blockquote>
+            <figcaption class="text-muted small">— Product Manager, SaaS Platform</figcaption>
+          </figure>
         </div>
       </div>
     </div>
@@ -191,44 +191,33 @@
         </div>
       </div>
     </div>
-    {{ $posts := first 2 (where .Site.RegularPages "Section" "blog") }}
+    {{ $posts := first 4 (where .Site.RegularPages "Section" "blog") }}
     <div class="row justify-content-center">
-      {{ if gt (len $posts) 0 }}
-        {{ range $posts }}
-        <div class="col-lg-6 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h5 card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-              <p class="card-text text-muted mb-2">{{ .Date.Format "Jan 02, 2006" }}</p>
-              <p class="card-text">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
-              <a href="{{ .RelPermalink }}" class="btn btn-link ps-0">Read more ...</a>
-            </div>
-          </div>
+      <div class="col-lg-14">
+        <div class="post-list">
+          {{ if gt (len $posts) 0 }}
+            {{ range $posts }}
+            <article class="post-list-item">
+              <h3 class="h5 mb-1"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+              <div class="text-muted small mb-2">{{ .Date.Format "Jan 02, 2006" }}</div>
+              <p class="mb-0">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+            </article>
+            {{ end }}
+          {{ else }}
+            <!-- Fallback static list when no `blog` section exists -->
+            <article class="post-list-item">
+              <h3 class="h5 mb-1">Building Modular Monoliths with ABP</h3>
+              <div class="text-muted small mb-2">May 10, 2024</div>
+              <p class="mb-0">A practical walkthrough of modular monoliths on the ABP Framework and .NET 8.</p>
+            </article>
+            <article class="post-list-item">
+              <h3 class="h5 mb-1">Clean Architecture, Pragmatically</h3>
+              <div class="text-muted small mb-2">Apr 22, 2024</div>
+              <p class="mb-0">Real-world lessons learned applying clean architecture to production services.</p>
+            </article>
+          {{ end }}
         </div>
-        {{ end }}
-      {{ else }}
-        <!-- Fallback static cards when no `blog` section exists -->
-        <div class="col-lg-6 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h5 card-title">Building Modular Monoliths with ABP</h3>
-              <p class="card-text text-muted mb-2">May 10, 2024</p>
-              <p class="card-text">A practical walkthrough of modular monoliths on the ABP Framework and .NET 8.</p>
-              <a href="#" class="btn btn-link ps-0">Read more ...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="card h-100 shadow-sm">
-            <div class="card-body">
-              <h3 class="h5 card-title">Clean Architecture, Pragmatically</h3>
-              <p class="card-text text-muted mb-2">Apr 22, 2024</p>
-              <p class="card-text">Real-world lessons learned applying clean architecture to production services.</p>
-              <a href="#" class="btn btn-link ps-0">Read more ...</a>
-            </div>
-          </div>
-        </div>
-      {{ end }}
+      </div>
     </div>
   </div>
 </section>

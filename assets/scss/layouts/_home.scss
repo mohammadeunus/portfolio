@@ -1,0 +1,55 @@
+/* Homepage section-specific styling with distinct visual patterns per section */
+
+/* Featured Projects as list rows */
+.projects-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba(29, 45, 53, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 150ms ease, border-color 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.project-row:hover {
+  transform: translateY(-2px);
+  border-color: rgba(93, 47, 134, 0.28);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+.project-title { margin: 0; }
+.project-stack { opacity: .8; }
+.impact-badge { font-size: .8125rem; color: #146c43; background: #e6f4ea; padding: .25rem .5rem; border-radius: 999px; }
+
+@media (max-width: 991.98px) {
+  .project-row { grid-template-columns: 1fr; }
+}
+
+/* Testimonials as clean quotes */
+.quotes { display: grid; gap: 1.25rem; }
+.quote {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid #5d2f86;
+  background: #fbf7f0;
+  border-radius: 8px;
+}
+.quote blockquote { margin: 0 0 .5rem 0; font-size: 1rem; }
+
+/* Blog post media list */
+.post-list { display: grid; gap: 1rem; }
+.post-list-item {
+  padding: 1rem 0;
+  border-bottom: 1px dashed rgba(29, 45, 53, 0.18);
+}
+.post-list-item:last-child { border-bottom: 0; }
+
+
