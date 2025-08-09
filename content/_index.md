@@ -1,7 +1,2 @@
----
-title: "Portfolio"
-description: ""
-draft: false
----
-
+<!-- moved to content/en/_index.md to match multilingual contentDir -->
 

@@ -1,4 +1,4 @@
-baseurl = "https://portfolio.eunus.dev/"
+baseurl = "https://eunus.dev/portfolio/"
 canonifyURLs = true
 disableAliases = true
 disableHugoGeneratorInject = true
