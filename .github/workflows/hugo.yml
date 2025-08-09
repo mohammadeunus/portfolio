@@ -28,6 +28,10 @@ jobs:
           extended: true
       - run: npm install
       - run: npm run build
+      - name: Show build output
+        run: |
+          ls -lah public || true
+          find public -maxdepth 2 -type f | sed 's#^#public/#' || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
