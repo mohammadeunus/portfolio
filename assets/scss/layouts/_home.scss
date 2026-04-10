@@ -1,3 +1,55 @@
+/* Pill navbar that appears on scroll */
+.pill-nav {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 800px;
+  height: 48px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0 1rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: 1600;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-dark-mode] body .pill-nav {
+  background: rgba(20, 20, 25, 0.92);
+}
+
+.pill-nav-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.pill-nav-text {
+  flex: 1;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a {
+    text-decoration: underline;
+  }
+}
+
+.pill-nav-toggle {
+  flex-shrink: 0;
+  padding: 0.25rem;
+}
+
 /* Homepage section-specific styling with distinct visual patterns per section */
 
 /* Featured Projects as list rows */
