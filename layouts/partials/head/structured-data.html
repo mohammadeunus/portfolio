@@ -30,15 +30,38 @@
       {{ end -}}
       "name": "{{ .Site.Params.schemaName }}",
       "url": {{ print $baseURL }},
+      {{ with .Site.Params.schemaJobTitle -}}
+      "jobTitle": "{{ . }}",
+      {{ end -}}
+      {{ with .Site.Params.schemaEmail -}}
+      "email": "mailto:{{ . }}",
+      {{ end -}}
+      "knowsAbout": [
+        "ABP Framework", "ASP.NET Core", "C#", ".NET MAUI",
+        "Angular", "Blazor", "Entity Framework Core", "PostgreSQL",
+        "Modular Monolith Architecture", "Microservices", "Domain-Driven Design",
+        "CQRS", "MediatR", "Elsa Workflow", "SaaS Architecture", "Multi-tenant Systems"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Wafi Solutions"
+      },
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Senior Software Engineer",
+        "occupationalCategory": "15-1252",
+        "skills": "ABP Framework, ASP.NET Core, C#, Angular, Blazor, .NET MAUI, PostgreSQL, Entity Framework Core, Modular Monolith, DDD, CQRS, MediatR",
+        "responsibilities": "Designs and builds scalable multi-tenant SaaS systems, leads architecture decisions, mentors junior engineers, and delivers full-stack features across .NET, Angular, Blazor, and MAUI."
+      },
       "sameAs": [
-        {{ with .Site.Params.schemaTwitter -}}
-        {{ . }}
-        {{ end -}}
         {{ with .Site.Params.schemaLinkedIn -}}
-        , {{ . }}
+        "{{ . }}"
         {{ end -}}
         {{ with .Site.Params.schemaGitHub -}}
-        , {{ . }}
+        , "{{ . }}"
+        {{ end -}}
+        {{ with .Site.Params.schemaBlogUrl -}}
+        , "{{ . }}"
         {{ end -}}
       ],
       {{ if eq .Site.Params.schemaType "Organization" -}}
@@ -81,7 +104,9 @@
       {{ end -}}
     },
     {
-      {{ if and (ne .Kind "taxonomy") (ne .Kind "term") -}}
+      {{ if .IsHome -}}
+        "@type": ["WebPage", "ProfilePage"],
+      {{ else if and (ne .Kind "taxonomy") (ne .Kind "term") -}}
         "@type": "WebPage",
       {{ else -}}
         "@type": "CollectionPage",
@@ -93,6 +118,11 @@
       "isPartOf": {
         "@id": {{ print $baseURL "#/schema/website/1" }}
       },
+      {{ if .IsHome -}}
+        "mainEntity": {
+          "@id": {{ print $baseURL "#/schema/person/1" }}
+        },
+      {{ end -}}
       {{ if eq .Site.Params.schemaType "Organization" -}}
         "about": {
           "@id": {{ print $baseURL "#/schema/organization/1" }}
@@ -111,6 +141,10 @@
         "@id": {{ print .Permalink "#/schema/image/2" }}
       },
       "inLanguage": "{{ .Site.Params.schemaLocale }}",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".display-4", ".h5.text-muted", ".lead"]
+      },
       "potentialAction": [{
         "@type": "ReadAction", "target": [{{ .Permalink }}]
       }]
@@ -208,3 +242,272 @@
   ]
 }
 </script>
+
+{{/* FAQ Schema — homepage only, for AI-extractable Q&A */}}
+{{ if .IsHome -}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What technologies does Eunusur Rahaman specialize in?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eunusur Rahaman specializes in ASP.NET Core with the ABP Framework, Angular, Blazor (Server and WebAssembly), .NET MAUI, Entity Framework Core, and PostgreSQL. He has deep expertise in modular monolith architecture, Domain-Driven Design, CQRS, MediatR, and building multi-tenant SaaS systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many projects has Eunusur Rahaman delivered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eunusur has delivered 12+ products, of which 9 are SaaS systems. These span domains including hotel management, sales and inventory, CRM, healthcare, education (LMS), ERP, and business integration platforms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Eunusur Rahaman available for hire?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Eunusur is open to remote freelance and full-time opportunities. Contact him at 100eunus@gmail.com or via LinkedIn at linkedin.com/in/mohammadeunus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Eunusur Rahaman's architectural approach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eunusur's primary expertise is modular monolith architecture using the ABP Framework. He converts tightly-coupled systems into cleanly bounded, independently-evolvable modules using Domain-Driven Design, CQRS, and MediatR patterns. He has led monolith-to-modular migrations across multiple production SaaS systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are Eunusur Rahaman's projects not publicly available?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "All 12+ projects were built for employers and clients under NDA. Source code and live URLs are confidential, but the domain, architecture, and technology stack for each project are publicly described on his portfolio at portfolio.eunus.dev."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What makes Eunusur Rahaman different from other .NET developers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Eunusur has production experience across the full .NET ecosystem — backend (ASP.NET Core + ABP), frontend (Angular + Blazor), and mobile (.NET MAUI) — enabling him to own features end-to-end. He has led monolith-to-modular migrations, built reusable component libraries used across multiple projects, and mentored engineering teams."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Eunusur Rahaman build a hotel management system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Eunusur has delivered a production Hotel Management SaaS system using ABP Framework, ASP.NET Core, PostgreSQL, and Angular, with DDD boundaries and integration tests. He has hands-on experience with reservation, guest management, and hotel operations modules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Eunusur Rahaman have experience building inventory or ERP systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Eunusur has built both a Sales and Inventory Management SaaS (Modular Monolith, PostgreSQL, Angular) and a full ERP Platform (Microservices, ABP, .NET, Angular). He led the migration from monolith to modular monolith across these systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Eunusur Rahaman built mobile apps with .NET MAUI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Eunusur has delivered two .NET MAUI projects: a Visit Management app (MAUI + Blazor + Elsa Workflow) and a Task Management SaaS (.NET MAUI Hybrid with Blazor). He can build cross-platform native apps using .NET MAUI and MAUI Hybrid."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Eunusur Rahaman integrate third-party APIs like HubSpot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Eunusur built a Business Integration Platform (SaaS) using ABP Framework, ASP.NET Core, Angular, and HubSpot API for CRM integration and data synchronization between internal systems and HubSpot."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Eunusur Rahaman have experience with healthcare or hospital management systems?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Eunusur has built a Hospital Management SaaS system using Blazor, and previously worked as a Credentialing Analyst at AMN Healthcare, giving him domain knowledge in both healthcare software and healthcare operations."
+      }
+    }
+  ]
+}
+</script>
+
+{{/* Project Portfolio Schema — ItemList + CreativeWork for each project */}}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Projects by Eunusur Rahaman",
+  "description": "12 professional software projects delivered by Eunusur Rahaman, spanning SaaS, enterprise, and mobile applications.",
+  "numberOfItems": 12,
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Geotechnical Solution",
+        "description": "SaaS platform for geotechnical engineering data management and automated PDF report generation.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Geotechnical, MVC, PdfSharp, ASP.NET Core, PDF Reporting"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Sales & Inventory Management",
+        "description": "SaaS inventory and sales tracking platform with modular monolith architecture, migrated from traditional monolith.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Inventory Management, Sales, Modular Monolith, PostgreSQL, Angular, ABP Framework"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Hotel Management System",
+        "description": "SaaS hotel operations management with reservations, guest management, DDD boundaries, and integration tests.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Hotel Management, Hospitality, DDD, Modular Monolith, Angular, PostgreSQL, Integration Testing"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Visit Management",
+        "description": "Mobile-first field visit scheduling and tracking app with workflow automation.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cross-platform (iOS, Android, Windows)",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": ".NET MAUI, Blazor, Elsa Workflow, Modular Monolith, Field Service, Visit Tracking"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Automobile Solution",
+        "description": "Vehicle management application with clean CQRS architecture and rich Blazor UI.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "CQRS, MediatR, Blazor, MudBlazor, Automobile, Vehicle Management"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "LMS (Kidoo)",
+        "description": "Learning management system for structured educational content, migrated from MVC to modular monolith.",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "LMS, Learning Management, Education, MVC, Modular Monolith, ASP.NET Core"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Mentoring Platform",
+        "description": "SaaS mentor-mentee matching and session management platform.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Mentoring, Mentor Matching, ASP.NET Zero, Angular"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Campaign Management",
+        "description": "SaaS marketing campaign tracking and execution platform.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Campaign Management, Marketing, MVC"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Task Management",
+        "description": "Cross-platform SaaS task management app using .NET MAUI Hybrid with Blazor.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Cross-platform (iOS, Android, Windows)",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Task Management, .NET MAUI Hybrid, Blazor, Cross-platform, Mobile"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Hospital Management",
+        "description": "SaaS hospital operations and patient management system with Blazor UI.",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, Hospital Management, Healthcare, Blazor, Patient Management"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Business Integration Platform",
+        "description": "SaaS CRM integration and business data synchronization platform connecting internal systems with HubSpot.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, CRM Integration, HubSpot, Data Sync, ABP Framework, Angular, API Integration"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "ERP Platform",
+        "description": "Full enterprise resource planning SaaS system with microservices architecture covering end-to-end business operations.",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "author": { "@id": {{ print $baseURL "#/schema/person/1" }} },
+        "keywords": "SaaS, ERP, Enterprise Resource Planning, Microservices, ABP Framework, Angular, PostgreSQL"
+      }
+    }
+  ]
+}
+</script>
+{{ end -}}

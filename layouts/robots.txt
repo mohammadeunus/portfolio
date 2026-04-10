@@ -1,6 +1,67 @@
 User-agent: *
 {{ if eq (hugo.Environment) "production" -}}
 Allow: /
+
+# ── OpenAI (ChatGPT / GPT) ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# ── Anthropic (Claude) ──
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# ── Google (Gemini) ──
+User-agent: Google-Extended
+Allow: /
+
+# ── Perplexity ──
+User-agent: PerplexityBot
+Allow: /
+
+# ── Apple (Apple Intelligence / Siri) ──
+User-agent: Applebot-Extended
+Allow: /
+
+# ── Meta (Llama) ──
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+# ── Cohere ──
+User-agent: cohere-ai
+Allow: /
+
+# ── Amazon (Alexa / Bedrock) ──
+User-agent: Amazonbot
+Allow: /
+
+# ── ByteDance (Doubao) ──
+User-agent: Bytespider
+Allow: /
+
+# ── Other AI crawlers ──
+User-agent: YouBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
 {{ else -}}
 Disallow: /
 {{ end }}

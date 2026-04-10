@@ -4,7 +4,7 @@
 title = "Eunusur Rahaman"
 titleSeparator = "-"
 titleAddition = "portfolio"
-description = ""
+description = "Senior Software Engineer specializing in ABP/.NET, scalable SaaS, Angular, Blazor, and .NET MAUI. 3+ years, 12+ products across modular monolith and microservice architectures."
 
 ## Documentation
 # docsVersion = "0.3"
@@ -12,13 +12,14 @@ description = ""
 ## Open Graph
 images = ["website-preview.png"]
 ogLocale = "en_US"
-domainTLD = "doks.netlify.app"
-titleHome = "Doks Theme"
+domainTLD = "portfolio.eunus.dev"
+titleHome = "Eunusur Rahaman — Senior .NET / ABP Software Engineer"
 
 
 ## JSON-LD
 schemaType = "Person"
-schemaAuthor = "Mohammad Eunus"
+schemaName = "Eunusur Rahaman"
+schemaAuthor = "Eunusur Rahaman"
 schemaAuthorLinkedIn = "https://www.linkedin.com/in/mohammadeunus"
 schemaAuthorGitHub = "https://github.com/mohammadeunus"
 schemaLocale = "en-US"
@@ -28,8 +29,12 @@ schemaLogoHeight = 512
 schemaImage = "website-preview.png"
 schemaImageWidth = 1280
 schemaImageHeight = 640
-schemaLinkedIn = ""
+schemaLinkedIn = "https://www.linkedin.com/in/mohammadeunus"
+schemaGitHub = "https://github.com/mohammadeunus"
 schemaSection = "blog"
+schemaJobTitle = "Senior Software Engineer"
+schemaEmail = "100eunus@gmail.com"
+schemaBlogUrl = "https://eunus.dev"
 
 ## Sitelinks Search Box
 siteLinksSearchBox = false
@@ -75,7 +80,7 @@ footer = """
 
 
 # Feed
-copyRight = "Copyright (c) 2020-2021 Henk Verlinde"
+copyRight = "Copyright (c) 2023-2026 Eunusur Rahaman"
 
 # Alert
 alert = false

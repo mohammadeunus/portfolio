@@ -1,10 +1,10 @@
 {{ define "main" }}
-<section id="hero-section" class="section mt-n3 pb-3">
+<section id="hero-section" class="section mt-n3 pb-3" aria-label="Professional summary">
   <div class="row align-items-center justify-content-center">
     <div class="col-lg-5 mb-4 text-center img-animate-left">
       <img
         src="/images/profile.png"
-        alt="Profile Picture"
+        alt="Eunusur Rahaman — Senior Software Engineer specializing in ABP/.NET and SaaS architecture"
         class="img-fluid rounded shadow"
         style="max-width: 320px"
       />
@@ -20,7 +20,7 @@
         modular design and long-term maintainability.
       </p>
       <ul class="list-inline text-muted small mb-3">
-        <li class="list-inline-item">3+ years</li>
+        <li class="list-inline-item"><time datetime="P3Y">3+ years</time> experience</li>
         <li class="list-inline-item">12+ products · 9 SaaS</li>
         <li class="list-inline-item">Angular • Blazor • .NET • MAUI</li>
       </ul>
@@ -49,7 +49,7 @@
 
 
 <!-- Key Projects Section -->
-<section class="section section-md">
+<section class="section section-md" aria-label="Key projects">
   <div class="container-xxl">
     <div class="row justify-content-center mb-4">
       <div class="col-18 position-relative">
@@ -192,7 +192,7 @@
 </section>
 
 <!-- Work Experience Section -->
-<section class="section section-md">
+<section class="section section-md" aria-label="Work experience">
   <div class="container-xxl">
     <div class="row justify-content-center">
       <div class="col-lg-14">
@@ -200,7 +200,7 @@
           <!-- Wafi Solutions — Senior Software Engineer -->
           <div class="timeline-item">
             <div class="current-timeline-marker"></div>
-            <div class="promotion-timeline-date">Present</div>
+            <div class="promotion-timeline-date"><time datetime="2026">Present</time></div>
             <div class="timeline-content">
               <h4>Wafi Solutions</h4>
               <div class="project">
@@ -214,7 +214,7 @@
           <!-- Wafi Solutions — Software Engineer L3 -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date">2025</div>
+            <div class="timeline-date"><time datetime="2025">2025</time></div>
             <div class="timeline-content">
               <div class="project">
                 <h5>Software Engineer L3</h5>
@@ -229,7 +229,7 @@
           <!-- Wafi Solutions — Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date">May, 2025</div>
+            <div class="timeline-date"><time datetime="2025-05">May, 2025</time></div>
             <div class="timeline-content">
               <div class="project">
                 <h5>Software Engineer</h5>
@@ -244,7 +244,7 @@
           <!-- Wafi Solutions — Junior Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date">Nov, 2024</div>
+            <div class="timeline-date"><time datetime="2024-11">Nov, 2024</time></div>
             <div class="timeline-content">
               <div class="project">
                 <h5>Junior Software Engineer</h5>
@@ -258,7 +258,7 @@
           <!-- Nerd Castle Limited -->
           <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-date">2023</div>
+            <div class="timeline-date"><time datetime="2023">2023</time></div>
             <div class="timeline-content">
               <h4>Nerd Castle Limited</h4>
               <div class="project">
@@ -272,7 +272,7 @@
           <!-- AMN Healthcare -->
           <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-date">2022</div>
+            <div class="timeline-date"><time datetime="2022">2022</time></div>
             <div class="timeline-content">
               <h4>AMN Healthcare</h4>
               <div class="project">
@@ -325,7 +325,7 @@
 </section> -->
 
 <!-- Latest Blog Posts Section -->
-<section class="section section-md">
+<section class="section section-md" aria-label="Latest blog posts">
   <div class="container-xxl">
     <div class="row justify-content-center mb-4">
       <div class="col-18 position-relative">
@@ -380,7 +380,7 @@
 </section>
 
 <!-- GitHub Activity Section -->
-<section class="section section-md">
+<section class="section section-md" aria-label="GitHub activity">
   <div class="container-xxl">
     <div class="row justify-content-center mb-4">
       <div class="col-18 position-relative">
@@ -390,14 +390,31 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-lg-14 text-center">
-        <a href="https://github.com/mohammadeunus" target="_blank" rel="noopener">
-          <img
-            src="https://ghchart.rshah.org/mohammadeunus"
-            alt="GitHub Contribution Graph"
-            class="img-fluid github-chart"
-          />
-        </a>
+      <div class="col-18">
+        <div class="gc-carousel">
+          <button class="gc-arrow gc-arrow--prev" aria-label="Previous year">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <div class="gc-track">
+            <div class="gc-item">
+              <span class="gc-label">2023</span>
+              <img src="/images/github-2023.png" alt="GitHub Contributions 2023" class="gc-img" />
+            </div>
+            <div class="gc-item">
+              <span class="gc-label">2024</span>
+              <img src="/images/github-2024.png" alt="GitHub Contributions 2024" class="gc-img" />
+            </div>
+            <div class="gc-item">
+              <span class="gc-label">2025 <span class="gc-live">live</span></span>
+              <a href="https://github.com/mohammadeunus" target="_blank" rel="noopener">
+                <img src="https://ghchart.rshah.org/mohammadeunus" alt="GitHub Contributions 2025" class="gc-img" />
+              </a>
+            </div>
+          </div>
+          <button class="gc-arrow gc-arrow--next" aria-label="Next year">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
       </div>
     </div>
   </div>
