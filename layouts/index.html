@@ -12,87 +12,29 @@
     <div class="col-lg-9 mb-4 lead-fade-in">
       <h1 class="display-4 mb-2">Eunusur Rahaman</h1>
       <p class="h5 text-muted mb-3">
-        Software Engineer — ABP/.NET specialist building scalable SaaS
+        Senior Software Engineer — ABP/.NET specialist building scalable SaaS
       </p>
       <p class="lead mb-3">
-        I design and ship maintainable, multi-tenant SaaS platforms with a
-        strong focus on modular architecture, reliability, and developer
-        experience.
+        I lead SaaS development by first understanding the business goal, then
+        breaking problems into clear, executable parts. I use AI as a
+        collaborative tool across analysis, design, and implementation —
+        delivering complete, maintainable features end-to-end.
       </p>
       <ul class="list-inline text-muted small mb-3">
-        <li class="list-inline-item">2+ years</li>
-        <li class="list-inline-item">4/8 SaaS</li>
-        <li class="list-inline-item">Angular • Blazor • .NET</li>
+        <li class="list-inline-item">3+ years</li>
+        <li class="list-inline-item">8 products · 4 SaaS</li>
+        <li class="list-inline-item">Angular • Blazor • .NET • MAUI</li>
       </ul>
-      <a href="mailto:100eunus@email.com" class="btn btn-primary me-2"
-        >Contact Me</a
-      >
-      <a href="/resume.pdf" class="btn btn-outline-secondary">View Resume</a>
+      <div class="mb-3">
+        <a href="mailto:100eunus@gmail.com" class="btn btn-primary me-2">Contact Me</a>
+        <a href="/resume.pdf" class="btn btn-outline-secondary me-2">View Resume</a>
+        <a href="https://github.com/mohammadeunus" target="_blank" rel="noopener" class="btn btn-outline-secondary">GitHub</a>
+      </div>
     </div>
   </div>
 </section>
 {{ end }} {{ define "sidebar-prefooter" }}
 
-<!-- Featured Projects Section 
-<section class="section section-md">
-  <div class="container-xxl">
-    <div class="row justify-content-center mb-4">
-      <div class="col-18 position-relative">
-        <div class="divider">
-          <span>&nbsp;&nbsp; Featured Projects</span>
-        </div>
-      </div>
-    </div>
-    {{ $projects := first 6 (where .Site.RegularPages "Section" "projects") }}
-    <div class="row justify-content-center">
-      <div class="col-lg-14">
-        <div class="projects-list">
-          <a
-            class="project-row"
-            href="https://github.com/mohammadeunus/branchline"
-            target="_blank"
-            rel="noopener"
-          >
-            <div class="project-row-main">
-              <h3 class="h6 project-title mb-1">Branchline</h3>
-              <div class="project-stack small text-muted">
-                .NET • SaaS • Modular Monolith
-              </div>
-            </div>
-            <div class="project-row-meta">
-              <p class="mb-1">
-                SaaS starter to kick‑start ideas fast: onboarding, employee
-                import, and roles &amp; permissions. WIP.
-              </p>
-              <span class="impact-badge">Impact: Faster MVP bootstrapping</span>
-            </div>
-          </a>
-          {{ if gt (len $projects) 0 }} {{ range $projects }}
-          <a class="project-row" href="{{ .RelPermalink }}">
-            <div class="project-row-main">
-              <h3 class="h6 project-title mb-1">{{ .Title }}</h3>
-              {{ with .Params.stack }}
-              <div class="project-stack small text-muted">
-                {{ delimit . " • " }}
-              </div>
-              {{ end }}
-            </div>
-            <div class="project-row-meta">
-              <p class="mb-1">
-                {{ with .Params.teaser }}{{ . }}{{ else }}{{ .Summary }}{{ end
-                }}
-              </p>
-              {{ with .Params.impact }}<span class="impact-badge"
-                >Impact: {{ . }}</span
-              >{{ end }}
-            </div>
-          </a>
-          {{ end }} {{ else }} {{ end }}
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 <!-- Work Experience Section -->
 <section class="section section-md">
@@ -100,14 +42,28 @@
     <div class="row justify-content-center">
       <div class="col-lg-14">
         <div class="timeline">
-          <!-- Wafi Solutions — Software Engineer L3 -->
+          <!-- Wafi Solutions — Senior Software Engineer -->
           <div class="timeline-item">
             <div class="current-timeline-marker"></div>
             <div class="promotion-timeline-date">Present</div>
             <div class="timeline-content">
               <h4>Wafi Solutions</h4>
               <div class="project">
-                <h5>Software Engineer L3 <span class="text-muted">— Full‑time, Onsite</span></h5>
+                <h5>Senior Software Engineer <span class="text-muted">— Full‑time, Onsite</span></h5>
+                <p>Lead development of scalable SaaS systems using modular monolith architecture and .NET; contribute to system design decisions with focus on maintainability, scalability, and business alignment.</p>
+                <p>Work across backend (.NET), frontend (Angular/Blazor), and cross-platform mobile (.NET MAUI) to deliver end-to-end features; apply AI-assisted, context-driven workflows for requirement analysis, solution design, and implementation.</p>
+                <p>Collaborate with cross-functional teams to improve delivery efficiency, code quality, and long-term system sustainability; practice structured development by breaking requirements into smaller, executable tasks.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wafi Solutions — Software Engineer L3 -->
+          <div class="timeline-item">
+            <div class="promotion-timeline-marker"></div>
+            <div class="timeline-date">2025</div>
+            <div class="timeline-content">
+              <div class="project">
+                <h5>Software Engineer L3</h5>
                 <p>Built Angular/Blazor component libraries and ABP templates that standardized UI/CRUD patterns and accelerated onboarding.</p>
                 <p>Led monolith → modular monolith migration across Sales/Inventory/CRM for reuse and clearer ownership; improved delivery and maintainability.</p>
                 <p>Delivered Hotel Management SaaS modules on ABP + Postgres with DDD boundaries and integration tests; mentored interns/juniors and improved reviews/docs/workflows.</p>
@@ -163,26 +119,8 @@
             <div class="timeline-content">
               <h4>AMN Healthcare</h4>
               <div class="project">
-                <h5>
-                  Credentialing Analyst
-                  <span class="text-muted"
-                    >— Remote via Radiant Data Systems (BD)</span
-                  >
-                </h5>
-                <p>
-                  Reviewed provider licenses, certifications, and required
-                  documents; ensured accuracy and completeness for
-                  credentialing.
-                </p>
-                <p>
-                  Communicated with clients via email and phone to drive timely
-                  submissions; coordinated with third‑party vendors to schedule
-                  drug screens and background checks for on‑time placement.
-                </p>
-                <p class="text-muted small mb-0">
-                  Contributed to rigorous quality standards at a leading US
-                  healthcare organization through meticulous verification.
-                </p>
+                <h5>Credentialing Analyst <span class="text-muted">— Remote via Radiant Data Systems (BD)</span></h5>
+                <p class="text-muted small mb-0">Reviewed provider licenses and certifications for a leading US healthcare staffing organization; coordinated with clients and vendors to ensure accurate, on‑time credentialing.</p>
               </div>
             </div>
           </div>
@@ -304,17 +242,7 @@
               </article>
               {{ end }}
             {{ else }}
-              <!-- Static fallback when no posts found -->
-              <article class="post-list-item">
-                <h3 class="h5 mb-1">Building Modular Monoliths with ABP</h3>
-                <div class="text-muted small mb-2">May 10, 2024</div>
-                <p class="mb-0">A practical walkthrough of modular monoliths on the ABP Framework and .NET 8.</p>
-              </article>
-              <article class="post-list-item">
-                <h3 class="h5 mb-1">Clean Architecture, Pragmatically</h3>
-                <div class="text-muted small mb-2">Apr 22, 2024</div>
-                <p class="mb-0">Real-world lessons learned applying clean architecture to production services.</p>
-              </article>
+              <p class="text-muted">Posts are published at <a href="https://eunus.dev/blog/" target="_blank" rel="noopener">eunus.dev/blog</a>.</p>
             {{ end }}
             {{ end }}
           {{ end }}
