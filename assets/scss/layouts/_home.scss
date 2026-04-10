@@ -60,33 +60,23 @@
 
 .gc-arrow {
   flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.15s, border-color 0.15s;
-  color: #444;
-  margin: 0 -0.4rem;
+  color: $primary;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+  margin: 0 -0.2rem;
 
   &:hover {
-    background: #f4f4f4;
-    border-color: rgba(0, 0, 0, 0.22);
+    opacity: 1;
   }
-}
 
-[data-dark-mode] body .gc-arrow {
-  background: #1e1e24;
-  border-color: rgba(255, 255, 255, 0.12);
-  color: #ccc;
-
-  &:hover {
-    background: #2a2a32;
+  svg {
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -166,6 +156,28 @@
 
 [data-dark-mode] body .gc-img {
   filter: invert(1) hue-rotate(180deg);
+}
+
+@media (max-width: 767.98px) {
+  .gc-item {
+    width: 95%;
+  }
+
+  .gc-item.is-prev,
+  .gc-item.is-next {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .gc-track {
+    height: 120px;
+  }
+
+  .gc-arrow {
+    width: 28px;
+    height: 28px;
+    margin: 0;
+  }
 }
 
 /* Homepage section-specific styling with distinct visual patterns per section */
