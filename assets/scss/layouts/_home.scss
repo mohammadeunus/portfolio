@@ -50,6 +50,15 @@
   padding: 0.25rem;
 }
 
+.github-chart {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+[data-dark-mode] body .github-chart {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 /* Homepage section-specific styling with distinct visual patterns per section */
 
 /* Featured Projects as list rows */
