@@ -259,71 +259,41 @@
     <div class="row justify-content-center">
       <div class="col-lg-14">
         <div class="post-list">
-          {{/* Try to fetch latest posts from eunus.dev/blog/index.html */}}
-          {{ $feedURL := "https://eunus.dev/blog/index.html" }}
-          {{ $remote := resources.GetRemote $feedURL }}
-          {{ $html := cond (ne $remote nil) (string $remote.Content) "" }}
-          {{/* Try to discover an alternate RSS/Atom link in the HTML head */}}
-          {{ $altLinks := cond (ne $html "") (findRE `(?is)<link[^>]+rel=\"alternate\"[^>]+href=\"([^\"]+)\"` $html) (slice) }}
-          {{ $altHref := "" }}
-          {{ if gt (len $altLinks) 0 }}
-            {{ $altHref = replaceRE `(?is).*href=\"([^\"]+)\".*` "$1" (index $altLinks 0) }}
-          {{ end }}
-
-          {{ $rendered := false }}
-          {{ if ne $altHref "" }}
-            {{ $altAbs := cond (hasPrefix $altHref "http") $altHref (print "https://eunus.dev" $altHref) }}
-            {{ $rss := resources.GetRemote $altAbs }}
-            {{ $parsed := cond (ne $rss nil) (transform.Unmarshal $rss) nil }}
-            {{ $items := slice }}
-            {{ if and $parsed (isset $parsed "rss") }}
-              {{ $items = index (index $parsed "rss") "channel" "item" }}
-            {{ else if and $parsed (isset $parsed "feed") }}
-              {{ $items = index $parsed "feed" "entry" }}
+          {{ $rss := resources.GetRemote "https://eunus.dev/blog/index.xml" }}
+          {{ $items := slice }}
+          {{ with $rss }}
+            {{ $feed := transform.Unmarshal . }}
+            {{/* Try rss > channel > item */}}
+            {{ with index $feed "rss" }}
+              {{ with index . "channel" }}
+                {{ with index . "item" }}
+                  {{ $items = . }}
+                {{ end }}
+              {{ end }}
             {{ end }}
-            {{ if gt (len $items) 0 }}
-              {{ $rendered = true }}
-              {{ range first 4 $items }}
-                {{ $title := or (index . "title") "Untitled" }}
-                {{ $desc := or (index . "description") (index . "summary") }}
-                {{ $date := or (index . "pubDate") (index . "updated") (index . "published") }}
-                {{ $href := or (index . "link") (index . "id") }}
-                <article class="post-list-item">
-                  <h3 class="h5 mb-1"><a href="{{ $href }}" target="_blank" rel="noopener">{{ $title }}</a></h3>
-                  {{ if $date }}<div class="text-muted small mb-2">{{ $date }}</div>{{ end }}
-                  {{ if $desc }}<p class="mb-0">{{ $desc | plainify }}</p>{{ end }}
-                </article>
+            {{/* Fallback: channel > item (no rss wrapper) */}}
+            {{ if not $items }}
+              {{ with index $feed "channel" }}
+                {{ with index . "item" }}
+                  {{ $items = . }}
+                {{ end }}
               {{ end }}
             {{ end }}
           {{ end }}
-
-          {{ if not $rendered }}
-            {{/* Fallback: scrape anchors to blog posts from HTML */}}
-            {{ $itemsRaw := cond (ne $html "") (findRE `(?is)<a[^>]+href=\"(/blog/[^\"]+)\"[^>]*>([^<]+)</a>` $html) (slice) }}
-            {{ if gt (len $itemsRaw) 0 }}
-              {{ range first 4 $itemsRaw }}
-                {{ $href := replaceRE `(?is).*href=\"([^\"]+)\".*` "$1" . }}
-                {{ $title := replaceRE `(?is).*?>\\s*([^<]+)\\s*</a>.*` "$1" . }}
-                <article class="post-list-item">
-                  <h3 class="h5 mb-1"><a href="https://eunus.dev{{ $href }}" target="_blank" rel="noopener">{{ $title }}</a></h3>
-                </article>
-              {{ end }}
-            {{ else }}
-              {{/* Fallback to internal posts if remote not usable */}}
-            {{/* Fallback to internal posts if remote feed unavailable */}}
-            {{ $posts := first 4 (where .Site.RegularPages "Section" "blog") }}
-            {{ if gt (len $posts) 0 }}
-              {{ range $posts }}
+          {{ if $items }}
+            {{ range first 4 $items }}
+              {{ $title := index . "title" }}
+              {{ $href  := index . "link" }}
+              {{ $date  := index . "pubDate" }}
+              {{ $desc  := index . "description" }}
               <article class="post-list-item">
-                <h3 class="h5 mb-1"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-                <div class="text-muted small mb-2">{{ .Date.Format "Jan 02, 2006" }}</div>
-                <p class="mb-0">{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+                <h3 class="h5 mb-1"><a href="{{ $href }}" target="_blank" rel="noopener">{{ $title }}</a></h3>
+                {{ with $date }}<div class="text-muted small mb-2">{{ (time .).Format "Jan 02, 2006" }}</div>{{ end }}
+                {{ with $desc }}<p class="mb-0">{{ . | plainify | truncate 160 }}</p>{{ end }}
               </article>
-              {{ end }}
-            {{ else }}
-              <p class="text-muted">Posts are published at <a href="https://eunus.dev/blog/" target="_blank" rel="noopener">eunus.dev/blog</a>.</p>
             {{ end }}
-            {{ end }}
+          {{ else }}
+            <p class="text-muted">Posts are published at <a href="https://eunus.dev/blog/" target="_blank" rel="noopener">eunus.dev/blog</a>.</p>
           {{ end }}
         </div>
       </div>
