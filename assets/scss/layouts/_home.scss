@@ -65,6 +65,42 @@
   border-bottom-color: $border-dark;
 }
 
+/* Key Projects grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: .75rem;
+}
+
+.project-card {
+  padding: .875rem 1rem;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  background: $white;
+}
+
+.project-card-name {
+  font-size: .9375rem;
+  font-weight: 600;
+  margin-bottom: .35rem;
+  color: inherit;
+}
+
+.project-card-stack {
+  font-size: .8rem;
+  color: $gray-500;
+  line-height: 1.5;
+}
+
+@media (max-width: 767.98px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+[data-dark-mode] body .project-card {
+  background: $body-bg-dark;
+  border-color: $border-dark;
+}
+
 /* Blog post media list */
 .post-list { display: grid; gap: 1rem; }
 .post-list-item {
