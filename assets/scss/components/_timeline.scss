@@ -21,6 +21,16 @@
   border-radius: 50%;
   border: 1px solid $white;
   box-shadow: 0 0 0 2px $border-color;
+  animation: marker-pulse 3s ease-in-out infinite;
+}
+
+@keyframes marker-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 2px $border-color, 0 0 0 2px transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 2px $border-color, 0 0 0 5px rgba($primary, 0.25);
+  }
 }
 
 .timeline-marker {
@@ -107,4 +117,38 @@
 [data-dark-mode] body .timeline-date,
 [data-dark-mode] body .promotion-timeline-date {
   color: $gray-400;
+}
+
+/* Mobile: move dates above content instead of left-positioned */
+@media (max-width: 767.98px) {
+  .timeline {
+    margin-left: 0.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .timeline-date,
+  .promotion-timeline-date {
+    position: relative;
+    left: auto;
+    top: auto;
+    text-align: left;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  .current-timeline-marker {
+    left: -2.35rem;
+  }
+
+  .timeline-marker {
+    left: -2.35rem;
+  }
+
+  .promotion-timeline-marker {
+    left: -2.15rem;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+  }
 }
