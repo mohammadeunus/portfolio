@@ -5,6 +5,7 @@
   var modeBtn = document.getElementById('mode');
   if (hero && pill) {
     window.addEventListener('scroll', function () {
+      if (pill.hasAttribute('data-island-open')) return;
       var r = hero.getBoundingClientRect();
       var total = hero.offsetHeight;
       var gone = Math.max(0, -r.top);

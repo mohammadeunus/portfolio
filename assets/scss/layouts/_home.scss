@@ -50,6 +50,259 @@
   padding: 0.25rem;
 }
 
+/* Pill nav transition for Dynamic Island expansion */
+.pill-nav {
+  transition: width 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+              max-width 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+              height 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+              border-radius 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+              top 0.5s cubic-bezier(0.32, 0.72, 0, 1),
+              padding 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+  will-change: width, height, border-radius;
+  overflow: hidden;
+}
+
+.pill-nav__default {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  transition: opacity 0.15s ease;
+}
+
+.pill-nav--expanded .pill-nav__default {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.pill-nav__detail {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease 0.05s, transform 0.3s ease 0.05s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.pill-nav--expanded .pill-nav__detail {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.pill-nav--expanded {
+  height: Min(70vh, 520px);
+  max-width: 560px;
+  border-radius: 28px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0;
+  align-items: stretch;
+}
+
+/* Close button */
+.pill-nav__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.08);
+  color: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease;
+  z-index: 2;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.15);
+  }
+}
+
+[data-dark-mode] body .pill-nav__close {
+  background: rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Detail content typography */
+.pill-nav__detail-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem 0;
+  padding-right: 2.5rem;
+}
+
+.pill-nav__detail-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: $gray-600;
+  margin: 0 0 1rem 0;
+}
+
+[data-dark-mode] body .pill-nav__detail-desc {
+  color: $gray-400;
+}
+
+.pill-nav__detail-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.pill-nav__detail-stack-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba($primary, 0.1);
+  color: $primary;
+}
+
+[data-dark-mode] body .pill-nav__detail-stack-tag {
+  background: rgba($link-color-dark, 0.15);
+  color: $link-color-dark;
+}
+
+.pill-nav__detail-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+
+  li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding-left: 1.25rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $primary;
+    }
+  }
+}
+
+[data-dark-mode] body .pill-nav__detail-features li::before {
+  background: $link-color-dark;
+}
+
+/* Overlay behind expanded pill */
+.pill-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1599;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.pill-overlay--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Project card hover CTA */
+.project-card {
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover,
+.project-card:focus-visible {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+[data-dark-mode] body .project-card:hover,
+[data-dark-mode] body .project-card:focus-visible {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.project-card-cta {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: $primary;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.2s ease, max-height 0.2s ease, margin-top 0.2s ease;
+  margin-top: 0;
+}
+
+.project-card:hover .project-card-cta,
+.project-card:focus-visible .project-card-cta {
+  opacity: 1;
+  max-height: 2rem;
+  margin-top: 0.5rem;
+}
+
+[data-dark-mode] body .project-card-cta {
+  color: $link-color-dark;
+}
+
+/* Mobile: hide CTA (no hover on touch) */
+@media (max-width: 767.98px) {
+  .project-card-cta {
+    display: none;
+  }
+
+  .pill-nav--expanded {
+    height: 80vh;
+    max-width: calc(100% - 1.5rem);
+    border-radius: 24px;
+  }
+
+  .pill-nav__detail {
+    padding: 1.25rem;
+  }
+
+  .pill-nav__detail-name {
+    font-size: 1.15rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .pill-nav {
+    transition-duration: 0.01ms !important;
+  }
+
+  .pill-nav__default,
+  .pill-nav__detail,
+  .pill-overlay,
+  .project-card,
+  .project-card-cta {
+    transition-duration: 0.01ms !important;
+  }
+}
+
 /* GitHub contribution carousel */
 .gc-carousel {
   display: flex;
@@ -293,6 +546,7 @@
 /* Marquee track */
 .marquee-track {
   display: flex;
+  align-items: flex-start;
   gap: 0.75rem;
   width: fit-content;
   animation: marquee-scroll 45s linear infinite;
@@ -372,6 +626,63 @@
     transform: translateX(0) !important;
     overflow-x: auto;
   }
+}
+
+/* AI Resume button — flip on hover, green on copy */
+.btn-ai-resume {
+  position: relative;
+  perspective: 400px;
+  overflow: hidden;
+}
+
+.btn-ai-resume-front,
+.btn-ai-resume-back {
+  display: block;
+  backface-visibility: hidden;
+  transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.btn-ai-resume-front {
+  transform: rotateX(0deg);
+}
+
+.btn-ai-resume-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  transform: rotateX(180deg);
+}
+
+.btn-ai-resume:hover .btn-ai-resume-front {
+  transform: rotateX(-180deg);
+}
+
+.btn-ai-resume:hover .btn-ai-resume-back {
+  transform: rotateX(0deg);
+}
+
+/* Copied state — green flash */
+.btn-ai-resume.btn-copied {
+  background-color: $success;
+  border-color: $success;
+  color: #fff;
+}
+
+.btn-ai-resume.btn-copied .btn-ai-resume-front {
+  transform: rotateX(0deg) !important;
+}
+
+.btn-ai-resume.btn-copied .btn-ai-resume-back {
+  transform: rotateX(180deg) !important;
+}
+
+[data-dark-mode] body .btn-ai-resume.btn-copied {
+  background-color: $success;
+  border-color: $success;
+  color: #fff;
 }
 
 /* Blog post media list */
