@@ -55,9 +55,19 @@
     pill.style.opacity = '1';
     pill.style.pointerEvents = 'auto';
 
-    // Expand
+    // Hide scrollbar during the drop — restore after transition
+    detail.style.overflowY = 'hidden';
+
+    // Expand — just height grows downward
     pill.classList.add('pill-nav--expanded');
     overlay.classList.add('pill-overlay--active');
+
+    // Re-enable scroll after curtain finishes dropping
+    pill.addEventListener('transitionend', function onOpen(e) {
+      if (e.propertyName !== 'height') return;
+      pill.removeEventListener('transitionend', onOpen);
+      detail.style.overflowY = '';
+    });
 
     // Lock scroll
     document.documentElement.style.overflow = 'hidden';
@@ -68,17 +78,21 @@
     pill.setAttribute('aria-hidden', 'false');
     pill.setAttribute('aria-label', 'Project details: ' + project.name);
 
-    // Focus close button after transition
-    setTimeout(function () {
-      if (closeBtn) closeBtn.focus();
-    }, 200);
+    if (closeBtn) closeBtn.focus();
   }
 
   function closeIsland() {
     if (!isOpen) return;
     isOpen = false;
 
-    // Contract
+    // Keep detail visible during the collapse — curtain goes back up with content showing
+    detail.style.display = 'flex';
+    detail.style.overflowY = 'hidden';
+
+    // Lock border-radius at 28px so it doesn't snap to 999px (oval) during collapse
+    pill.style.borderRadius = '28px';
+
+    // Remove expanded class — only height collapses
     pill.classList.remove('pill-nav--expanded');
     overlay.classList.remove('pill-overlay--active');
 
@@ -90,19 +104,21 @@
     pill.removeAttribute('aria-modal');
     pill.removeAttribute('aria-label');
 
-    // Let hero-morph.js resume after contraction completes
+    // After height collapses, clean up
     function onTransitionEnd(e) {
       if (e.propertyName !== 'height') return;
       pill.removeEventListener('transitionend', onTransitionEnd);
-      pill.removeAttribute('data-island-open');
 
-      // Clear detail content
+      // Hide detail and clear content
+      detail.style.display = '';
+      detail.style.overflowY = '';
+      pill.style.borderRadius = '';
       nameEl.textContent = '';
       descEl.textContent = '';
       stackEl.innerHTML = '';
       featuresEl.innerHTML = '';
 
-      // Trigger a scroll recalc so hero-morph.js re-evaluates opacity
+      pill.removeAttribute('data-island-open');
       window.dispatchEvent(new Event('scroll'));
     }
     pill.addEventListener('transitionend', onTransitionEnd);
