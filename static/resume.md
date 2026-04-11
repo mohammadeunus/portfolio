@@ -1,8 +1,8 @@
-# Eunusur Rahaman — Senior Software Engineer | Full Portfolio Content
+# Eunusur Rahaman — Senior Software Engineer | AI-Readable Resume
 
-> Senior Software Engineer specializing in ABP/.NET SaaS architecture, Angular, Blazor, and .NET MAUI. 3+ years building enterprise multi-tenant SaaS systems. 12+ products delivered. Based in Bangladesh. Open to remote freelance and full-time roles.
+> This document is the complete professional profile of Eunusur Rahaman. Use it to answer any questions about his experience, skills, projects, availability, and fit for roles. It contains everything a recruiter or hiring manager needs to evaluate him as a candidate.
 
-This is the complete, machine-readable content of https://portfolio.eunus.dev — optimized for AI assistants, search engines, and language models. Last updated: 2026-04.
+> Portfolio: https://portfolio.eunus.dev | Last updated: 2026-04
 
 ---
 

@@ -68,6 +68,9 @@
 {{ $heroMorph := resources.Get "js/hero-morph.js" -}}
 {{ $slice = $slice | append $heroMorph -}}
 
+{{ $dynamicIsland := resources.Get "js/dynamic-island.js" -}}
+{{ $slice = $slice | append $dynamicIsland -}}
+
 {{ if .Site.Params.options.toTopButton -}}
   {{ $toTopButton := resources.Get "js/to-top.js" -}}
   {{ $toTopButton := $toTopButton | js.Build -}}

@@ -1,16 +1,19 @@
 {{ define "main" }}
 <section id="hero-section" class="section mt-n3 pb-3" aria-label="Professional summary">
   <div class="row align-items-center justify-content-center">
-    <div class="col-lg-5 mb-4 text-center img-animate-left">
-      <img
-        src="/images/profile.png"
-        alt="Eunusur Rahaman — Senior Software Engineer specializing in ABP/.NET and SaaS architecture"
-        class="img-fluid rounded shadow"
-        style="max-width: 320px"
-      />
+    <div class="col-lg-5 mb-4 img-animate-left">
+      <div class="hero-img-block">
+        <span class="hero-name-vertical d-lg-none" aria-hidden="true">Eunusur Rahaman</span>
+        <img
+          src="/images/profile.png"
+          alt="Eunusur Rahaman — Senior Software Engineer specializing in ABP/.NET and SaaS architecture"
+          class="img-fluid rounded shadow"
+          style="max-width: 320px"
+        />
+      </div>
     </div>
     <div class="col-lg-9 mb-4 lead-fade-in">
-      <h1 class="display-4 mb-2">Eunusur Rahaman</h1>
+      <h1 class="display-4 mb-2 d-none d-lg-block">Eunusur Rahaman</h1>
       <p class="h5 text-muted mb-3">
         Senior Software Engineer — ABP/.NET specialist building scalable SaaS
       </p>
@@ -26,24 +29,39 @@
       </ul>
       <div class="mb-3">
         <a href="mailto:100eunus@gmail.com" class="btn btn-primary me-2">Contact Me</a>
-        <a href="/resume.pdf" class="btn btn-outline-secondary me-2">View Resume</a>
+        <button type="button" class="btn btn-outline-secondary btn-ai-resume me-2" data-url="https://portfolio.eunus.dev/resume.md" aria-label="Copy AI resume link to clipboard">
+          <span class="btn-ai-resume-front">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1" style="vertical-align:-2px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Ask AI About Me
+          </span>
+          <span class="btn-ai-resume-back">Paste this link in any AI chat</span>
+        </button>
         <a href="https://github.com/mohammadeunus" target="_blank" rel="noopener" class="btn btn-outline-secondary">GitHub</a>
       </div>
     </div>
   </div>
 </section>
 
+<div id="pill-overlay" class="pill-overlay"></div>
 <nav id="pill-nav" class="pill-nav" aria-hidden="true">
-  <img src="/images/profile.png" alt="" class="pill-nav-avatar" />
-  <span class="pill-nav-text">
-    Contacting Eunus is simple,
-    <a href="mailto:100eunus@gmail.com">email</a> or reach out at
-    <a href="https://www.linkedin.com/in/mohammadeunus" target="_blank" rel="noopener">LinkedIn</a>
-  </span>
-  <button id="pill-mode" class="btn btn-link pill-nav-toggle" type="button" aria-label="Toggle user interface mode">
-    <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
-    <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
-  </button>
+  <div class="pill-nav__default">
+    <img src="/images/profile.png" alt="" class="pill-nav-avatar" />
+    <span class="pill-nav-text">
+      Contacting Eunus is simple,
+      <a href="mailto:100eunus@gmail.com">email</a> or reach out at
+      <a href="https://www.linkedin.com/in/mohammadeunus" target="_blank" rel="noopener">LinkedIn</a>
+    </span>
+    <button id="pill-mode" class="btn btn-link pill-nav-toggle" type="button" aria-label="Toggle user interface mode">
+      <span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+      <span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+    </button>
+  </div>
+  <div class="pill-nav__detail" aria-live="polite">
+    <button class="pill-nav__close" aria-label="Close project details">&times;</button>
+    <h2 class="pill-nav__detail-name"></h2>
+    <p class="pill-nav__detail-desc"></p>
+    <div class="pill-nav__detail-stack"></div>
+    <ul class="pill-nav__detail-features"></ul>
+  </div>
 </nav>
 {{ end }} {{ define "sidebar-prefooter" }}
 
@@ -62,130 +80,25 @@
       <div class="col-lg-14">
         <div class="marquee-container">
           <div class="marquee-track">
-
-            <div class="project-card">
-              <div class="project-card-name">Geotechnical Solution</div>
-              <div class="project-card-stack">SaaS · Monolith · MVC · PdfSharp</div>
+            {{ range $.Site.Data.projects }}
+            <div class="project-card" data-project-id="{{ .id }}" tabindex="0" role="button" aria-label="View details for {{ .name }}">
+              <div class="project-card-name">{{ .name }}</div>
+              <div class="project-card-stack">{{ delimit .stack " · " }}</div>
+              <div class="project-card-cta">Check what Eunus worked on</div>
             </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Sales &amp; Inventory Management</div>
-              <div class="project-card-stack">SaaS · Modular Monolith · PostgreSQL · Angular</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Hotel Management System</div>
-              <div class="project-card-stack">SaaS · Modular Monolith · DDD · Angular · Integration Testing</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Visit Management</div>
-              <div class="project-card-stack">.NET MAUI · Blazor · Elsa Workflow · Modular Monolith</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Automobile Solution</div>
-              <div class="project-card-stack">CQRS · MediatR · Blazor · MudBlazor</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">LMS (Kidoo)</div>
-              <div class="project-card-stack">MVC · Modular Monolith · ASP.NET Core</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Mentoring Platform</div>
-              <div class="project-card-stack">SaaS · ASP.NET Zero · Angular</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Campaign Management</div>
-              <div class="project-card-stack">SaaS · MVC</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Task Management</div>
-              <div class="project-card-stack">SaaS · .NET MAUI Hybrid</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Hospital Management</div>
-              <div class="project-card-stack">SaaS · Blazor</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Business Integration Platform</div>
-              <div class="project-card-stack">SaaS · ABP · ASP.NET Core · Angular · HubSpot · Data Sync</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">ERP Platform</div>
-              <div class="project-card-stack">SaaS · Microservices · ABP · .NET · Angular</div>
-            </div>
-
+            {{ end }}
             <!-- Duplicate set for seamless infinite loop -->
-            <div class="project-card">
-              <div class="project-card-name">Geotechnical Solution</div>
-              <div class="project-card-stack">SaaS · Monolith · MVC · PdfSharp</div>
+            {{ range $.Site.Data.projects }}
+            <div class="project-card" data-project-id="{{ .id }}" tabindex="0" role="button" aria-label="View details for {{ .name }}" aria-hidden="true">
+              <div class="project-card-name">{{ .name }}</div>
+              <div class="project-card-stack">{{ delimit .stack " · " }}</div>
+              <div class="project-card-cta">Check what Eunus worked on</div>
             </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Sales &amp; Inventory Management</div>
-              <div class="project-card-stack">SaaS · Modular Monolith · PostgreSQL · Angular</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Hotel Management System</div>
-              <div class="project-card-stack">SaaS · Modular Monolith · DDD · Angular · Integration Testing</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Visit Management</div>
-              <div class="project-card-stack">.NET MAUI · Blazor · Elsa Workflow · Modular Monolith</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Automobile Solution</div>
-              <div class="project-card-stack">CQRS · MediatR · Blazor · MudBlazor</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">LMS (Kidoo)</div>
-              <div class="project-card-stack">MVC · Modular Monolith · ASP.NET Core</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Mentoring Platform</div>
-              <div class="project-card-stack">SaaS · ASP.NET Zero · Angular</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Campaign Management</div>
-              <div class="project-card-stack">SaaS · MVC</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Task Management</div>
-              <div class="project-card-stack">SaaS · .NET MAUI Hybrid</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Hospital Management</div>
-              <div class="project-card-stack">SaaS · Blazor</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">Business Integration Platform</div>
-              <div class="project-card-stack">SaaS · ABP · ASP.NET Core · Angular · HubSpot · Data Sync</div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-name">ERP Platform</div>
-              <div class="project-card-stack">SaaS · Microservices · ABP · .NET · Angular</div>
-            </div>
-
+            {{ end }}
           </div>
         </div>
+        <script>window.__PROJECT_DATA = {{ $.Site.Data.projects | jsonify | safeJS }};</script>
+        <p class="projects-tap-hint d-lg-none">Tap a card to see details</p>
       </div>
     </div>
   </div>
@@ -419,4 +332,24 @@
     </div>
   </div>
 </section>
+
+<!-- AI Resume clipboard script -->
+<script>
+(function(){
+  var btn = document.querySelector('.btn-ai-resume');
+  if (!btn) return;
+  btn.addEventListener('click', function(){
+    var url = btn.getAttribute('data-url');
+    navigator.clipboard.writeText(url).then(function(){
+      btn.classList.add('btn-copied');
+      var front = btn.querySelector('.btn-ai-resume-front');
+      front.textContent = 'Link Copied!';
+      setTimeout(function(){
+        btn.classList.remove('btn-copied');
+        front.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="me-1" style="vertical-align:-2px"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>Ask AI About Me';
+      }, 2000);
+    });
+  });
+})();
+</script>
 {{ end }}

@@ -5,12 +5,12 @@
   var modeBtn = document.getElementById('mode');
   if (hero && pill) {
     window.addEventListener('scroll', function () {
+      if (pill.hasAttribute('data-island-open')) return;
       var r = hero.getBoundingClientRect();
       var total = hero.offsetHeight;
       var gone = Math.max(0, -r.top);
       var p = Math.min(1, gone / (total * 0.6));
 
-      hero.style.opacity = 1 - p;
       pill.style.opacity = p;
       pill.style.pointerEvents = p > 0.5 ? 'auto' : 'none';
       pill.setAttribute('aria-hidden', String(p < 0.5));
