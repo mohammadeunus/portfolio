@@ -12,26 +12,30 @@ function inputFocus(e) {
   }
   if (e.key === 'Escape' ) {
     search.blur();
-    suggestions.classList.add('d-none');
+    if (suggestions) suggestions.classList.add('d-none');
   }
 }
 
-document.addEventListener('click', function(event) {
+if (suggestions) {
+  document.addEventListener('click', function(event) {
 
-  var isClickInsideElement = suggestions.contains(event.target);
+    var isClickInsideElement = suggestions.contains(event.target);
 
-  if (!isClickInsideElement) {
-    suggestions.classList.add('d-none');
-  }
+    if (!isClickInsideElement) {
+      suggestions.classList.add('d-none');
+    }
 
-});
+  });
+}
 
 /*
 Source:
   - https://dev.to/shubhamprakash/trap-focus-using-javascript-6a3
 */
 
-document.addEventListener('keydown',suggestionFocus);
+if (suggestions) {
+  document.addEventListener('keydown',suggestionFocus);
+}
 
 function suggestionFocus(e) {
   const suggestionsHidden = suggestions.classList.contains('d-none');
@@ -126,7 +130,7 @@ Source:
     );
   {{ end -}}
 
-  search.addEventListener('input', show_results, true);
+  if (search) search.addEventListener('input', show_results, true);
 
   function show_results(){
     const maxResult = 5;
