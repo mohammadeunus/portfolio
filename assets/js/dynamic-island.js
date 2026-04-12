@@ -1,6 +1,8 @@
 (function () {
+  console.log('[DI] dynamic-island.js loaded');
   var pill = document.getElementById('pill-nav');
   var overlay = document.getElementById('pill-overlay');
+  console.log('[DI] pill:', !!pill, 'overlay:', !!overlay);
   if (!pill || !overlay) return;
 
   var detail = pill.querySelector('.pill-nav__detail');
@@ -10,11 +12,13 @@
   var stackEl = pill.querySelector('.pill-nav__detail-stack');
   var featuresEl = pill.querySelector('.pill-nav__detail-features');
 
+  console.log('[DI] detail:', !!detail, 'name:', !!nameEl, 'desc:', !!descEl, 'stack:', !!stackEl, 'features:', !!featuresEl);
   if (!detail || !nameEl || !descEl || !stackEl || !featuresEl) return;
 
   // Index project data by id
   var dataMap = {};
   var rawData = window.__PROJECT_DATA || [];
+  console.log('[DI] __PROJECT_DATA type:', typeof window.__PROJECT_DATA, 'count:', rawData.length);
   for (var i = 0; i < rawData.length; i++) {
     dataMap[rawData[i].id] = rawData[i];
   }
@@ -201,10 +205,13 @@
 
   // Attach click/keyboard handlers to all project cards
   var cards = document.querySelectorAll('.project-card[data-project-id]');
+  console.log('[DI] cards found:', cards.length, 'dataMap keys:', Object.keys(dataMap).length);
   for (var ci = 0; ci < cards.length; ci++) {
     (function (card) {
       card.addEventListener('click', function () {
-        openIsland(card.getAttribute('data-project-id'), card);
+        var id = card.getAttribute('data-project-id');
+        console.log('[DI] card clicked, id:', id, 'in dataMap:', !!dataMap[id], 'isOpen:', isOpen);
+        openIsland(id, card);
       });
       card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
