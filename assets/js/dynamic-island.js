@@ -1,8 +1,6 @@
 (function () {
-  console.log('[DI] dynamic-island.js loaded');
   var pill = document.getElementById('pill-nav');
   var overlay = document.getElementById('pill-overlay');
-  console.log('[DI] pill:', !!pill, 'overlay:', !!overlay);
   if (!pill || !overlay) return;
 
   var detail = pill.querySelector('.pill-nav__detail');
@@ -12,13 +10,11 @@
   var stackEl = pill.querySelector('.pill-nav__detail-stack');
   var featuresEl = pill.querySelector('.pill-nav__detail-features');
 
-  console.log('[DI] detail:', !!detail, 'name:', !!nameEl, 'desc:', !!descEl, 'stack:', !!stackEl, 'features:', !!featuresEl);
   if (!detail || !nameEl || !descEl || !stackEl || !featuresEl) return;
 
   // Index project data by id
   var dataMap = {};
   var rawData = window.__PROJECT_DATA || [];
-  console.log('[DI] __PROJECT_DATA type:', typeof window.__PROJECT_DATA, 'count:', rawData.length);
   for (var i = 0; i < rawData.length; i++) {
     dataMap[rawData[i].id] = rawData[i];
   }
@@ -55,8 +51,7 @@
     var project = dataMap[projectId];
     if (!project || isOpen) return;
 
-    // Cancel any stale close cleanup that hasn't fired yet —
-    // without this, the stale transitionend listener fires mid-open and corrupts state.
+    // Cancel any stale close cleanup that hasn't fired yet
     clearCloseCleanup();
 
     isOpen = true;
@@ -94,17 +89,6 @@
     // Expand — height grows downward
     pill.classList.add('pill-nav--expanded');
     overlay.classList.add('pill-overlay--active');
-
-    console.log('[DI] openIsland: expanded class added, checking state...');
-    setTimeout(function () {
-      var cs = window.getComputedStyle(pill);
-      console.log('[DI] pill computed:', 'height=' + cs.height, 'opacity=' + cs.opacity, 'display=' + cs.display, 'visibility=' + cs.visibility, 'zIndex=' + cs.zIndex, 'top=' + cs.top, 'transform=' + cs.transform);
-      console.log('[DI] pill inline:', 'opacity=' + pill.style.opacity, 'pointerEvents=' + pill.style.pointerEvents);
-      console.log('[DI] pill classes:', pill.className);
-      var ocs = window.getComputedStyle(overlay);
-      console.log('[DI] overlay computed:', 'opacity=' + ocs.opacity, 'pointerEvents=' + ocs.pointerEvents, 'zIndex=' + ocs.zIndex);
-      console.log('[DI] html overflow:', document.documentElement.style.overflow);
-    }, 50);
 
     // Restore overflowY after open transition (with fallback)
     var openTimer;
@@ -216,13 +200,10 @@
 
   // Attach click/keyboard handlers to all project cards
   var cards = document.querySelectorAll('.project-card[data-project-id]');
-  console.log('[DI] cards found:', cards.length, 'dataMap keys:', Object.keys(dataMap).length);
   for (var ci = 0; ci < cards.length; ci++) {
     (function (card) {
       card.addEventListener('click', function () {
-        var id = card.getAttribute('data-project-id');
-        console.log('[DI] card clicked, id:', id, 'in dataMap:', !!dataMap[id], 'isOpen:', isOpen);
-        openIsland(id, card);
+        openIsland(card.getAttribute('data-project-id'), card);
       });
       card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {

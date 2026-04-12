@@ -9,6 +9,7 @@ module.exports = {
       content: [
         './layouts/**/*.html',
         './content/**/*.md',
+        './assets/js/**/*.js',
       ],
       safelist: [
         'lazyloaded',
@@ -27,6 +28,8 @@ module.exports = {
         'lazyload',
         'blur-up',
         'figcaption',
+        'pill-nav--expanded',
+        'pill-overlay--active',
         ...whitelister([
           './assets/scss/components/_alerts.scss',
           './assets/scss/components/_buttons.scss',
