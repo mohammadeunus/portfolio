@@ -10,6 +10,8 @@
   var stackEl = pill.querySelector('.pill-nav__detail-stack');
   var featuresEl = pill.querySelector('.pill-nav__detail-features');
 
+  if (!detail || !nameEl || !descEl || !stackEl || !featuresEl) return;
+
   // Index project data by id
   var dataMap = {};
   var rawData = window.__PROJECT_DATA || [];
@@ -20,9 +22,38 @@
   var isOpen = false;
   var triggerCard = null;
 
+  // Tracks any in-flight close cleanup so we can cancel it if a new open fires first
+  var closeCleanup = null;
+
+  function clearCloseCleanup() {
+    if (!closeCleanup) return;
+    pill.removeEventListener('transitionend', closeCleanup.fn);
+    clearTimeout(closeCleanup.timer);
+    closeCleanup = null;
+  }
+
+  function doCloseCleanup() {
+    // Guard against double-call (transitionend + setTimeout race)
+    clearCloseCleanup();
+    detail.style.display = '';
+    detail.style.overflowY = '';
+    pill.style.borderRadius = '';
+    nameEl.textContent = '';
+    descEl.textContent = '';
+    stackEl.innerHTML = '';
+    featuresEl.innerHTML = '';
+    overlay.classList.remove('pill-overlay--active'); // safety: ensure overlay is gone
+    pill.removeAttribute('data-island-open');
+    window.dispatchEvent(new Event('scroll'));
+  }
+
   function openIsland(projectId, trigger) {
     var project = dataMap[projectId];
     if (!project || isOpen) return;
+
+    // Cancel any stale close cleanup that hasn't fired yet —
+    // without this, the stale transitionend listener fires mid-open and corrupts state.
+    clearCloseCleanup();
 
     isOpen = true;
     triggerCard = trigger;
@@ -31,43 +62,48 @@
     nameEl.textContent = project.name;
     descEl.textContent = project.description;
 
-    // Stack badges
     stackEl.innerHTML = '';
     var stack = project.stack || [];
-    for (var i = 0; i < stack.length; i++) {
+    for (var j = 0; j < stack.length; j++) {
       var tag = document.createElement('span');
       tag.className = 'pill-nav__detail-stack-tag';
-      tag.textContent = stack[i];
+      tag.textContent = stack[j];
       stackEl.appendChild(tag);
     }
 
-    // Features list
     featuresEl.innerHTML = '';
     var features = project.features || [];
-    for (var i = 0; i < features.length; i++) {
+    for (var k = 0; k < features.length; k++) {
       var li = document.createElement('li');
-      li.textContent = features[i];
+      li.textContent = features[k];
       featuresEl.appendChild(li);
     }
 
-    // Signal hero-morph.js to stop manipulating pill
+    // Signal hero-morph.js to stop manipulating pill opacity
     pill.setAttribute('data-island-open', '');
     pill.style.opacity = '1';
     pill.style.pointerEvents = 'auto';
 
-    // Hide scrollbar during the drop — restore after transition
+    // Hide scrollbar during the drop; restore after transition
     detail.style.overflowY = 'hidden';
 
-    // Expand — just height grows downward
+    // Expand — height grows downward
     pill.classList.add('pill-nav--expanded');
     overlay.classList.add('pill-overlay--active');
 
-    // Re-enable scroll after curtain finishes dropping
-    pill.addEventListener('transitionend', function onOpen(e) {
+    // Restore overflowY after open transition (with fallback)
+    var openTimer;
+    function onOpen(e) {
       if (e.propertyName !== 'height') return;
       pill.removeEventListener('transitionend', onOpen);
+      clearTimeout(openTimer);
       detail.style.overflowY = '';
-    });
+    }
+    pill.addEventListener('transitionend', onOpen);
+    openTimer = setTimeout(function () {
+      pill.removeEventListener('transitionend', onOpen);
+      detail.style.overflowY = '';
+    }, 600);
 
     // Lock scroll
     document.documentElement.style.overflow = 'hidden';
@@ -85,42 +121,32 @@
     if (!isOpen) return;
     isOpen = false;
 
-    // Keep detail visible during the collapse — curtain goes back up with content showing
+    // Keep detail visible during collapse so content shows while curtain rises
     detail.style.display = 'flex';
     detail.style.overflowY = 'hidden';
 
-    // Lock border-radius at 28px so it doesn't snap to 999px (oval) during collapse
+    // Hold border-radius at 28px — clears after transition to avoid shape glitch
     pill.style.borderRadius = '28px';
 
-    // Remove expanded class — only height collapses
+    // Collapse — height goes back to 48px
     pill.classList.remove('pill-nav--expanded');
     overlay.classList.remove('pill-overlay--active');
 
-    // Unlock scroll
+    // Unlock scroll immediately — don't wait for transition
     document.documentElement.style.overflow = '';
 
-    // Remove dialog ARIA
+    // Remove dialog ARIA immediately
     pill.removeAttribute('role');
     pill.removeAttribute('aria-modal');
     pill.removeAttribute('aria-label');
 
-    // After height collapses, clean up
+    // Clean up after collapse (transitionend + setTimeout fallback)
     function onTransitionEnd(e) {
       if (e.propertyName !== 'height') return;
-      pill.removeEventListener('transitionend', onTransitionEnd);
-
-      // Hide detail and clear content
-      detail.style.display = '';
-      detail.style.overflowY = '';
-      pill.style.borderRadius = '';
-      nameEl.textContent = '';
-      descEl.textContent = '';
-      stackEl.innerHTML = '';
-      featuresEl.innerHTML = '';
-
-      pill.removeAttribute('data-island-open');
-      window.dispatchEvent(new Event('scroll'));
+      doCloseCleanup();
     }
+    var timer = setTimeout(doCloseCleanup, 600);
+    closeCleanup = { fn: onTransitionEnd, timer: timer };
     pill.addEventListener('transitionend', onTransitionEnd);
 
     // Return focus to trigger card
@@ -175,20 +201,17 @@
 
   // Attach click/keyboard handlers to all project cards
   var cards = document.querySelectorAll('.project-card[data-project-id]');
-  for (var i = 0; i < cards.length; i++) {
+  for (var ci = 0; ci < cards.length; ci++) {
     (function (card) {
       card.addEventListener('click', function () {
-        var id = card.getAttribute('data-project-id');
-        openIsland(id, card);
+        openIsland(card.getAttribute('data-project-id'), card);
       });
-
       card.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          var id = card.getAttribute('data-project-id');
-          openIsland(id, card);
+          openIsland(card.getAttribute('data-project-id'), card);
         }
       });
-    })(cards[i]);
+    })(cards[ci]);
   }
 })();
