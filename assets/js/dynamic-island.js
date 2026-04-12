@@ -95,6 +95,17 @@
     pill.classList.add('pill-nav--expanded');
     overlay.classList.add('pill-overlay--active');
 
+    console.log('[DI] openIsland: expanded class added, checking state...');
+    setTimeout(function () {
+      var cs = window.getComputedStyle(pill);
+      console.log('[DI] pill computed:', 'height=' + cs.height, 'opacity=' + cs.opacity, 'display=' + cs.display, 'visibility=' + cs.visibility, 'zIndex=' + cs.zIndex, 'top=' + cs.top, 'transform=' + cs.transform);
+      console.log('[DI] pill inline:', 'opacity=' + pill.style.opacity, 'pointerEvents=' + pill.style.pointerEvents);
+      console.log('[DI] pill classes:', pill.className);
+      var ocs = window.getComputedStyle(overlay);
+      console.log('[DI] overlay computed:', 'opacity=' + ocs.opacity, 'pointerEvents=' + ocs.pointerEvents, 'zIndex=' + ocs.zIndex);
+      console.log('[DI] html overflow:', document.documentElement.style.overflow);
+    }, 50);
+
     // Restore overflowY after open transition (with fallback)
     var openTimer;
     function onOpen(e) {

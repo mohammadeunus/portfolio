@@ -713,61 +713,114 @@
   }
 }
 
-/* AI Resume button — flip on hover, green on copy */
+/* AI Resume button — slide animation */
 .btn-ai-resume {
   position: relative;
-  perspective: 400px;
+  background-color: $primary;
+  color: #fff;
+  border: 1px solid $primary;
+  cursor: pointer;
   overflow: hidden;
+  transition: background-color 0.4s ease-in-out, border-color 0.4s ease-in-out, color 0.4s ease-in-out;
+  z-index: 1;
+
+  .btn-ai-resume-placeholder {
+    visibility: hidden;
+    pointer-events: none;
+    display: inline-block;
+  }
+
+  .btn-ai-resume-front,
+  .btn-ai-resume-back {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .btn-ai-resume-front {
+    color: #fff;
+  }
+
+  .btn-ai-resume-back {
+    color: #000;
+    top: 100%;
+    transform: translate(-50%, 0);
+    opacity: 0;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+
+    .btn-ai-resume-front {
+      top: 0;
+      opacity: 0;
+      transform: translate(-50%, -100%);
+    }
+
+    .btn-ai-resume-back {
+      top: 50%;
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /* Copied state — green */
+  &.btn-copied {
+    background-color: $success !important;
+    border-color: $success !important;
+    color: #fff !important;
+
+    .btn-ai-resume-front {
+      top: 50% !important;
+      opacity: 1 !important;
+      transform: translate(-50%, -50%) !important;
+      color: #fff !important;
+    }
+
+    .btn-ai-resume-back {
+      opacity: 0 !important;
+      top: 100% !important;
+    }
+  }
 }
 
-.btn-ai-resume-front,
-.btn-ai-resume-back {
-  display: block;
-  backface-visibility: hidden;
-  transition: transform 0.45s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
+[data-dark-mode] body .btn-ai-resume {
+  background-color: transparent;
+  border-color: $link-color-dark;
+  color: $link-color-dark;
 
-.btn-ai-resume-front {
-  transform: rotateX(0deg);
-}
+  .btn-ai-resume-front {
+    color: $link-color-dark;
+  }
 
-.btn-ai-resume-back {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.78rem;
-  transform: rotateX(180deg);
-}
+  &:hover {
+    background-color: $link-color-dark;
+    border-color: $link-color-dark;
+    color: $body-bg-dark;
 
-.btn-ai-resume:hover .btn-ai-resume-front {
-  transform: rotateX(-180deg);
-}
+    .btn-ai-resume-front {
+      color: $body-bg-dark;
+    }
 
-.btn-ai-resume:hover .btn-ai-resume-back {
-  transform: rotateX(0deg);
-}
+    .btn-ai-resume-back {
+      color: $body-bg-dark;
+    }
+  }
 
-/* Copied state — green flash */
-.btn-ai-resume.btn-copied {
-  background-color: $success;
-  border-color: $success;
-  color: #fff;
-}
+  &.btn-copied {
+    background-color: $success !important;
+    border-color: $success !important;
+    color: #fff !important;
 
-.btn-ai-resume.btn-copied .btn-ai-resume-front {
-  transform: rotateX(0deg) !important;
-}
-
-.btn-ai-resume.btn-copied .btn-ai-resume-back {
-  transform: rotateX(180deg) !important;
-}
-
-[data-dark-mode] body .btn-ai-resume.btn-copied {
-  background-color: $success;
-  border-color: $success;
-  color: #fff;
+    .btn-ai-resume-front {
+      color: #fff !important;
+    }
+  }
 }
 
 /* Mobile tap hint below Key Projects */
