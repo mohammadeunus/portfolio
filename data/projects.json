@@ -1,5 +1,16 @@
 [
   {
+    "id": "abp-microservices-us",
+    "name": "ABP Microservices Platform",
+    "stack": ["ABP Framework 8.2", ".NET 8", "PostgreSQL", "RabbitMQ", "Redis", "YARP", "Stripe"],
+    "description": "Enterprise SaaS platform for a US client built as 17+ microservices on ABP Framework Commercial. Joined as a founding engineer and owned core architecture — covering 10 business domains including CRM, Sales, Inventory, Finance, and Payments.",
+    "features": [
+      "Designed full microservice architecture: YARP API gateway, schema-per-service PostgreSQL, RabbitMQ-backed distributed event bus",
+      "Taught the team ABP's built-in capabilities — distributed event bus, DDD layers, module system, multi-tenancy — so developers could focus on business logic rather than infrastructure",
+      "Onboarded engineers onto a 117-project solution and established ABP best practices that accelerated feature delivery across 10 business domains"
+    ]
+  },
+  {
     "id": "erp-platform",
     "name": "ERP Platform",
     "stack": ["ABP Framework", ".NET", "Angular", "Microservices", "Multi-Tenant SaaS"],
