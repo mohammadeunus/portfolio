@@ -1,146 +1,146 @@
 [
   {
-    "id": "geotechnical-solution",
-    "name": "Geotechnical Solution",
-    "stack": ["SaaS", "Monolith", "MVC", "PdfSharp"],
-    "description": "A geotechnical engineering platform for managing soil testing, lab results, and automated PDF report generation for construction and infrastructure projects.",
+    "id": "erp-platform",
+    "name": "ERP Platform",
+    "stack": ["ABP Framework", ".NET", "Angular", "Microservices", "Multi-Tenant SaaS"],
+    "description": "Large-scale enterprise ERP platform covering sales, inventory, CRM, and operations across multiple business units. Contributed to core modules, architecture discussions, and reusable framework standards.",
     "features": [
-      "Automated PDF report generation with PdfSharp",
-      "Soil test data management with CRUD operations",
-      "Data seeding for rapid environment setup",
-      "Role-based access for engineers and lab technicians"
-    ]
-  },
-  {
-    "id": "sales-inventory-management",
-    "name": "Sales & Inventory Management",
-    "stack": ["SaaS", "Modular Monolith", "PostgreSQL", "Angular"],
-    "description": "A modular SaaS platform for managing sales pipelines, inventory tracking, and order fulfillment across multiple business units.",
-    "features": [
-      "Modular monolith architecture with clear domain boundaries",
-      "Real-time inventory tracking and stock alerts",
-      "Sales pipeline management with reporting dashboards",
-      "Multi-tenant support with PostgreSQL"
+      "Feature development and bugfixes across sales, inventory, and CRM modules",
+      "Contributed to modular monolith architecture with clear domain boundaries",
+      "Participated in architecture discussions on scalability and maintainability",
+      "Worked on reusable framework patterns adopted across the product suite"
     ]
   },
   {
     "id": "hotel-management-system",
     "name": "Hotel Management System",
-    "stack": ["SaaS", "Modular Monolith", "DDD", "Angular", "Integration Testing"],
-    "description": "A comprehensive hotel management SaaS system handling reservations, guest management, billing, and housekeeping operations with DDD architecture.",
+    "stack": ["ABP Framework", "DDD", ".NET", "Angular", "PostgreSQL"],
+    "description": "Enterprise hotel management SaaS system built for a Saudi-based client. Led development of core operational modules with a focus on complex billing logic and DDD-based architecture.",
     "features": [
-      "Domain-Driven Design with bounded contexts",
-      "Reservation and guest lifecycle management",
-      "Integration test coverage for core workflows",
-      "ABP Framework with PostgreSQL backend"
+      "Designed and built core booking and reservation workflows",
+      "Implemented custom recurring billing and payment integration",
+      "Applied Domain-Driven Design with clear bounded contexts",
+      "Delivered foundational business modules for hospitality operations"
+    ]
+  },
+  {
+    "id": "hospital-management",
+    "name": "Hospital Management System",
+    "stack": ["ABP Framework", "Blazor", "Modular Monolith", ".NET"],
+    "description": "Healthcare management SaaS platform for a Greece-based client, built as a modular monolith using ABP Framework. Contributed to core clinical workflows while collaborating with a senior international engineer.",
+    "features": [
+      "Led development of core healthcare management and booking modules",
+      "Built on modular monolith architecture using ABP Framework",
+      "Collaborated closely with a senior engineer from Greece on scalable design",
+      "Gained hands-on exposure to production-grade enterprise architecture practices"
     ]
   },
   {
     "id": "visit-management",
     "name": "Visit Management",
-    "stack": [".NET MAUI", "Blazor", "Elsa Workflow", "Modular Monolith"],
-    "description": "A cross-platform visit and field-service management system with configurable approval workflows, built for both mobile and desktop use.",
+    "stack": [".NET MAUI", "Blazor Hybrid", "Elsa Workflow", "Modular Monolith"],
+    "description": "Cross-platform field service and visit management system for web and Windows. Built configurable approval workflows, invitation flows, and registration features using Elsa Workflow engine.",
     "features": [
-      "Cross-platform via .NET MAUI and Blazor Hybrid",
-      "Configurable approval workflows using Elsa",
-      "Offline-capable field data collection",
-      "Modular monolith with independent feature modules"
+      "Approval workflow engine using Elsa — configurable multi-step flows",
+      "Invitation and registration management for external visitors",
+      "Cross-platform delivery via .NET MAUI and Blazor Hybrid",
+      "Modular monolith structure with independent feature modules"
+    ]
+  },
+  {
+    "id": "task-management",
+    "name": "Task Management",
+    "stack": [".NET MAUI", "Blazor Hybrid", "Adobe Photoshop Extension"],
+    "description": "Cross-platform task and workflow management system for desktop and web, including an Adobe Photoshop extension for integrated time tracking within creative workflows.",
+    "features": [
+      "Workflow tracking and operational management features",
+      "Built Adobe Photoshop extension integrated with the task system for time tracking",
+      "Cross-platform delivery using Blazor Hybrid and .NET MAUI",
+      "Explored secure internal file management on private servers"
+    ]
+  },
+  {
+    "id": "sales-inventory-management",
+    "name": "Sales & Inventory Management",
+    "stack": ["Modular Monolith", "Angular", "PostgreSQL", "ABP Framework"],
+    "description": "Multi-tenant SaaS platform for managing sales pipelines and inventory across business units. Contributed to modularization, reusable architecture standards, and core business features.",
+    "features": [
+      "Inventory tracking with stock management and alerts",
+      "Sales pipeline management with reporting",
+      "Modular monolith architecture with clear ownership boundaries",
+      "Reusable patterns adopted across related SaaS products"
+    ]
+  },
+  {
+    "id": "geotechnical-solution",
+    "name": "Geotechnical Solution",
+    "stack": ["MVC", "ASP.NET Core", "PdfSharp", "SQL Server"],
+    "description": "Large-scale enterprise geotechnical system for a US-based client, built on MVC architecture. Contributed to backend feature development, automated PDF reporting, and system modernization.",
+    "features": [
+      "Automated PDF report generation using PdfSharp for soil test data",
+      "Soil data management with CRUD and structured data workflows",
+      "Backend feature development and system modernization on legacy MVC codebase",
+      "Supported stability improvements for production usage"
     ]
   },
   {
     "id": "automobile-solution",
     "name": "Automobile Solution",
     "stack": ["CQRS", "MediatR", "Blazor", "MudBlazor"],
-    "description": "An automobile service and parts management system built with CQRS pattern for clean separation of reads and writes, featuring a MudBlazor UI.",
+    "description": "Automobile inventory and profile management system applying CQRS pattern for clean read/write separation, with a MudBlazor component-based UI.",
     "features": [
-      "CQRS with MediatR for clean command/query separation",
-      "MudBlazor component library for rich UI",
-      "Service scheduling and parts inventory",
-      "Structured logging and audit trails"
+      "CQRS with MediatR for command and query separation",
+      "Car inventory management and vehicle profile features",
+      "MudBlazor UI with consistent component-driven design",
+      "Clean architecture with maintainable module structure"
     ]
   },
   {
     "id": "lms-kidoo",
     "name": "LMS (Kidoo)",
-    "stack": ["MVC", "Modular Monolith", "ASP.NET Core"],
-    "description": "A learning management system for educational institutions, later restructured from monolith to modular architecture for better scalability.",
+    "stack": ["ASP.NET Core MVC", "Modular Monolith"],
+    "description": "Learning management system for educational institutions. Contributed to course and exam features, and supported migration from a monolithic structure to a modular architecture.",
     "features": [
-      "Course and curriculum management",
-      "Student enrollment and progress tracking",
-      "Migration from monolith to modular monolith",
+      "Course management and exam feature development",
+      "Student enrollment and progress workflows",
+      "Supported migration from monolith to modular monolith",
       "ASP.NET Core MVC with server-side rendering"
     ]
   },
   {
     "id": "mentoring-platform",
     "name": "Mentoring Platform",
-    "stack": ["SaaS", "ASP.NET Zero", "Angular"],
-    "description": "A SaaS mentoring platform connecting mentors and mentees with scheduling, session tracking, and progress analytics.",
+    "stack": ["ASP.NET Zero", "Angular", "Multi-Tenant SaaS"],
+    "description": "Multi-tenant SaaS mentoring platform built on ASP.NET Zero, connecting mentors and mentees with scheduling and session management across multiple tenants.",
     "features": [
-      "Mentor-mentee matching and scheduling",
-      "Session tracking with progress analytics",
+      "Multi-tenant mentoring and scheduling platform",
+      "Mentor-mentee matching and session management",
       "Built on ASP.NET Zero multi-tenant framework",
-      "Angular frontend with responsive design"
+      "Angular frontend with module-based feature delivery"
     ]
   },
   {
     "id": "campaign-management",
     "name": "Campaign Management",
-    "stack": ["SaaS", "MVC"],
-    "description": "A campaign management tool for planning, executing, and tracking marketing and outreach campaigns with performance metrics.",
+    "stack": ["ASP.NET Core MVC", "SaaS"],
+    "description": "SaaS campaign management system for handling prospect pledges, donations, and operational reporting across fundraising and outreach campaigns.",
     "features": [
-      "Campaign lifecycle management",
-      "Performance tracking and analytics",
-      "Multi-channel campaign support",
-      "SaaS multi-tenant architecture"
+      "Prospect pledge and donation tracking workflows",
+      "Campaign reporting and analytics dashboards",
+      "Multi-tenant SaaS architecture with MVC",
+      "Business process management for campaign operations"
     ]
   },
   {
-    "id": "task-management",
-    "name": "Task Management",
-    "stack": ["SaaS", ".NET MAUI Hybrid"],
-    "description": "A cross-platform task management application built with .NET MAUI Hybrid, enabling teams to track work items across mobile and desktop.",
+    "id": "mcp-ai-integration",
+    "name": "MCP & AI Integration",
+    "stack": ["MCP", "Claude", "Agentic Workflows", ".NET"],
+    "description": "Built MCP (Model Context Protocol) integrations enabling operational automation through AI chat interfaces. Explored productivity-focused engineering workflows using agentic AI tooling.",
     "features": [
-      "Cross-platform with .NET MAUI Hybrid",
-      "Task boards with drag-and-drop",
-      "Team collaboration and assignment",
-      "Offline support with sync capabilities"
-    ]
-  },
-  {
-    "id": "hospital-management",
-    "name": "Hospital Management",
-    "stack": ["SaaS", "Blazor"],
-    "description": "A hospital management SaaS system for patient records, appointment scheduling, and department coordination with a Blazor-based interface.",
-    "features": [
-      "Patient record management and history",
-      "Appointment scheduling and queue management",
-      "Department and staff coordination",
-      "Blazor Server for real-time UI updates"
-    ]
-  },
-  {
-    "id": "business-integration-platform",
-    "name": "Business Integration Platform",
-    "stack": ["SaaS", "ABP", "ASP.NET Core", "Angular", "HubSpot", "Data Sync"],
-    "description": "An integration platform that syncs business data between internal systems and external services like HubSpot, enabling unified CRM and sales operations.",
-    "features": [
-      "HubSpot CRM integration and data sync",
-      "ABP modular architecture with Angular frontend",
-      "Automated data pipeline between systems",
-      "Webhook-based real-time event processing"
-    ]
-  },
-  {
-    "id": "erp-platform",
-    "name": "ERP Platform",
-    "stack": ["SaaS", "Microservices", "ABP", ".NET", "Angular"],
-    "description": "A large-scale ERP platform built with microservices architecture, covering sales, inventory, CRM, and financial modules for enterprise operations.",
-    "features": [
-      "Microservices architecture with ABP Framework",
-      "Modules: Sales, Inventory, CRM, Finance",
-      "Angular frontend with shared component library",
-      "Distributed event-driven communication"
+      "Built MCP server enabling operational tasks via Claude chat",
+      "Participated in AI-assisted agentic development workflow workshops",
+      "Explored productivity automation for engineering and business operations",
+      "Hands-on with Claude, Cursor, and agentic tooling in real workflows"
     ]
   }
 ]

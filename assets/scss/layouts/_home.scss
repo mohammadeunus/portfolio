@@ -269,21 +269,9 @@
   pointer-events: auto;
 }
 
-/* Project card hover CTA */
+/* Project card — non-interactive, display only */
 .project-card {
-  cursor: pointer;
-  transition: box-shadow 0.25s ease, transform 0.25s ease;
-}
-
-.project-card:hover,
-.project-card:focus-visible {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
-}
-
-[data-dark-mode] body .project-card:hover,
-[data-dark-mode] body .project-card:focus-visible {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  cursor: default;
 }
 
 .project-card {
@@ -847,4 +835,111 @@
 
 .post-list-item:last-child {
   border-bottom: 0;
+}
+
+/* Project Contributions table */
+@keyframes contrib-row-flash {
+  0%   { background: rgba($primary, 0.14); }
+  60%  { background: rgba($primary, 0.07); }
+  100% { background: transparent; }
+}
+
+@keyframes contrib-row-flash-dark {
+  0%   { background: rgba($link-color-dark, 0.18); }
+  60%  { background: rgba($link-color-dark, 0.08); }
+  100% { background: transparent; }
+}
+
+.contrib-row--highlight {
+  animation: contrib-row-flash 2s ease forwards;
+}
+
+[data-dark-mode] body .contrib-row--highlight {
+  animation-name: contrib-row-flash-dark;
+}
+
+.project-contributions-table {
+  font-size: 0.875rem;
+  width: 100%;
+
+  thead th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $gray-500;
+    border-bottom: 1px solid $border-color;
+    padding: 0 0.75rem 0.75rem;
+    white-space: nowrap;
+
+    &:first-child { padding-left: 0; }
+  }
+
+  tbody tr {
+    border-bottom: 1px solid $border-color;
+    transition: background 0.15s ease;
+
+    &:last-child { border-bottom: 0; }
+
+    &:hover { background: rgba($primary, 0.03); }
+  }
+
+  tbody td {
+    padding: 0.7rem 0.75rem;
+    vertical-align: middle;
+    line-height: 1.5;
+
+    &:first-child {
+      padding-left: 0;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    &:last-child {
+      color: $gray-600;
+    }
+  }
+}
+
+.contrib-domain {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: rgba($primary, 0.08);
+  color: $primary;
+  white-space: nowrap;
+}
+
+[data-dark-mode] body .project-contributions-table {
+  thead th {
+    color: $gray-400;
+    border-bottom-color: $border-dark;
+  }
+
+  tbody tr {
+    border-bottom-color: $border-dark;
+
+    &:hover { background: rgba(255, 255, 255, 0.03); }
+  }
+
+  tbody td:last-child {
+    color: $gray-400;
+  }
+}
+
+[data-dark-mode] body .contrib-domain {
+  background: rgba($link-color-dark, 0.12);
+  color: $link-color-dark;
+}
+
+@media (max-width: 767.98px) {
+  .project-contributions-table {
+    font-size: 0.8rem;
+
+    tbody td:first-child {
+      white-space: normal;
+    }
+  }
 }

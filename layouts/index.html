@@ -15,12 +15,12 @@
     <div class="col-lg-9 mb-4 lead-fade-in">
       <h1 class="display-4 mb-2 d-none d-lg-block">Eunusur Rahaman</h1>
       <p class="h5 text-muted mb-3">
-        Software Engineer — ABP/.NET specialist building scalable SaaS
+        Senior Software Engineer L1 — ABP/.NET · SaaS · Modular Architecture
       </p>
       <p class="lead mb-3">
-        I take SaaS features from requirement to production — owning the full
-        stack across .NET, Angular, Blazor, and MAUI, with a sharp focus on
-        modular design and long-term maintainability.
+        I build and evolve enterprise SaaS systems across .NET, Angular, Blazor, and MAUI —
+        focusing on modular architecture, long-term maintainability, and scalable design.
+        Recently expanding into AI-assisted engineering and MCP-based agentic workflows.
       </p>
       <ul class="list-inline text-muted small mb-3">
         <li class="list-inline-item"><time datetime="P3Y">3+ years</time> experience</li>
@@ -84,15 +84,15 @@
         <div class="marquee-container">
           <div class="marquee-track">
             {{ range $.Site.Data.projects }}
-            <div class="project-card" data-project-id="{{ .id }}" tabindex="0" role="button" aria-label="View details for {{ .name }}">
+            <div class="project-card" data-project-id="{{ .id }}" tabindex="0" role="button" aria-label="See {{ .name }} in project contributions">
               <div class="project-card-name">{{ .name }}</div>
               <div class="project-card-stack">{{ delimit .stack " · " }}</div>
-              <div class="project-card-cta">Check what Eunus worked on</div>
+              <div class="project-card-cta">See in contributions ↓</div>
             </div>
             {{ end }}
             <!-- Duplicate set for seamless infinite loop -->
             {{ range $.Site.Data.projects }}
-            <div class="project-card" data-project-id="{{ .id }}" tabindex="0" role="button" aria-label="View details for {{ .name }}" aria-hidden="true">
+            <div class="project-card" data-project-id="{{ .id }}" aria-hidden="true">
               <div class="project-card-name">{{ .name }}</div>
               <div class="project-card-stack">{{ delimit .stack " · " }}</div>
               <div class="project-card-cta">Check what Eunus worked on</div>
@@ -101,7 +101,6 @@
           </div>
         </div>
         <script>window.__PROJECT_DATA = {{ $.Site.Data.projects | jsonify | safeJS }};</script>
-        <p class="projects-tap-hint d-lg-none">Tap a card to see details</p>
       </div>
     </div>
   </div>
@@ -113,16 +112,17 @@
     <div class="row justify-content-center">
       <div class="col-lg-14">
         <div class="timeline">
-          <!-- Wafi Solutions — Senior Software Engineer -->
+          <!-- Wafi Solutions — Senior Software Engineer L1 -->
           <div class="timeline-item">
             <div class="current-timeline-marker"></div>
             <div class="promotion-timeline-date"><time datetime="2026">Present</time></div>
             <div class="timeline-content">
               <h4>Wafi Solutions</h4>
               <div class="project">
-                <h5>Senior Software Engineer <span class="text-muted">— Full‑time, Onsite</span></h5>
-                <p>I work on building and evolving SaaS systems used in real business operations (sales, inventory, CRM, hotel management). My focus is making systems easier to extend over time by structuring them as modular monoliths instead of tightly coupled codebases.</p>
-                <p>I'm involved in both architecture decisions and hands-on development—designing modules, reviewing code, and breaking down complex requirements into manageable tasks. I also contribute across the stack (.NET, Angular/Blazor, MAUI) when needed to ship complete features.</p>
+                <h5>Senior Software Engineer L1 <span class="text-muted">— Full‑time, Onsite · Jan 2026 – Present</span></h5>
+                <p>Leading <strong>architecture evolution</strong> and technical direction across enterprise SaaS systems including ERP, CRM, Inventory, and Hotel Management. Contributing to engineering leadership through architecture decisions, onboarding, mentoring, and hiring support as the company scales.</p>
+                <p>Designed a <strong>reusable UI theming system</strong> across Angular and Blazor applications, enabling consistent UI switching across SaaS products and establishing a standardized internal UI foundation.</p>
+                <p>Collaborated with <strong>international stakeholders</strong> across Europe, Africa, the Middle East, Australia, and USA for requirement analysis, demos, and solution planning. Participated in <strong>AI-assisted agentic development</strong> workflow workshops to improve engineering productivity.</p>
               </div>
             </div>
           </div>
@@ -130,14 +130,13 @@
           <!-- Wafi Solutions — Software Engineer L3 -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date"><time datetime="2025">2025</time></div>
+            <div class="timeline-date"><time datetime="2025-05">May, 2025</time></div>
             <div class="timeline-content">
               <div class="project">
-                <h5>Software Engineer L3</h5>
-                <p>Built reusable Angular and Blazor component libraries and ABP templates that reduced repetitive CRUD work and made onboarding new developers faster.</p>
-                <p>Led migration from a traditional monolith to a modular monolith across Sales, Inventory, and CRM systems, improving code ownership and making features easier to extend.</p>
-                <p>Delivered core modules for a Hotel Management SaaS system using ABP + PostgreSQL with clear DDD boundaries and integration tests.</p>
-                <p>Mentored junior developers, improved code review quality, and introduced better documentation practices across the team.</p>
+                <h5>Software Engineer L3 <span class="text-muted">— May 2025 – Jan 2026</span></h5>
+                <p>Owned development of core modules across multiple enterprise SaaS platforms with a focus on <strong>modular architecture</strong> and scalable business workflows.</p>
+                <p>Played a key role in a <strong>Hotel Management System</strong> for a Saudi-based client — built booking workflows, <strong>payment integration</strong>, and custom recurring billing features from the ground up.</p>
+                <p>Led core module development for a <strong>Hospital Management System</strong> for a Greece-based client built as a <strong>modular monolith using ABP Framework</strong>. Collaborated closely with a senior international engineer and gained strong exposure to production-grade architecture and long-term maintainability practices.</p>
               </div>
             </div>
           </div>
@@ -145,14 +144,13 @@
           <!-- Wafi Solutions — Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date"><time datetime="2025-05">May, 2025</time></div>
+            <div class="timeline-date"><time datetime="2024-03">Mar, 2024</time></div>
             <div class="timeline-content">
               <div class="project">
-                <h5>Software Engineer</h5>
-                <p>Developed core features for a geotechnical system including CRUD operations, PDF reporting (PdfSharp), and data seeding; helped stabilize production usage.</p>
-                <p>Built Visit Management workflows using ABP, MAUI, Blazor, and Elsa, structuring features into independent modules.</p>
-                <p>Contributed to a mentoring platform (ASP.NET Zero + Angular) by shipping multiple functional modules.</p>
-                <p>Applied CQRS and MediatR patterns in an automobile solution with MudBlazor UI, creating a more consistent and maintainable structure across projects.</p>
+                <h5>Software Engineer <span class="text-muted">— Mar 2024 – May 2025</span></h5>
+                <p>Worked across multiple enterprise SaaS systems focusing on backend engineering, system modernization, and <strong>cross-platform UI</strong> experimentation.</p>
+                <p>Introduced and evaluated <strong>Blazor and Blazor Hybrid</strong> development internally, exploring cross-platform solutions for web and Windows. Contributed to a large-scale US-based geotechnical enterprise system on MVC architecture — built backend workflows, <strong>PDF reporting (PdfSharp)</strong>, and system modernization improvements.</p>
+                <p>Developed an <strong>Adobe Photoshop extension</strong> integrated with the internal task management system for workflow-based time tracking.</p>
               </div>
             </div>
           </div>
@@ -160,14 +158,13 @@
           <!-- Wafi Solutions — Junior Software Engineer -->
           <div class="timeline-item">
             <div class="promotion-timeline-marker"></div>
-            <div class="timeline-date"><time datetime="2024-11">Nov, 2024</time></div>
+            <div class="timeline-date"><time datetime="2023-11">Nov, 2023</time></div>
             <div class="timeline-content">
               <div class="project">
-                <h5>Junior Software Engineer</h5>
-                <p>Created reusable C# and TypeScript component libraries that were adopted across multiple projects, improving consistency and reducing duplicate work.</p>
-                <p>Managed EF Core migrations and followed structured Git workflows to support clean and stable releases.</p>
-                <p>Worked on breaking down monolithic systems into modular structures to improve reusability and long-term maintainability.</p>
-                <p><strong>Projects:</strong> Kidoo (LMS built with ASP.NET Core MVC, later modularized for better scalability) • WafiCommerce (ERP system with ASP.NET Core API + Angular, PostgreSQL)</p>
+                <h5>Junior Software Engineer <span class="text-muted">— Nov 2023 – Mar 2024</span></h5>
+                <p>Focused on <strong>ABP Framework</strong> research, modular architecture design, and early-stage SaaS development. Studied ABP internals — modular structure, configuration system, and UI customization — which improved internal architecture standards and development consistency.</p>
+                <p>Contributed to the initial design of <strong>modular SaaS systems</strong> by defining reusable patterns later adopted across multiple projects. Supported modularization of legacy monolithic systems and helped establish standardized <strong>Git flow</strong> practices across teams.</p>
+                <p>Built reusable <strong>C# and TypeScript components</strong> to improve development efficiency and maintainability across enterprise systems.</p>
               </div>
             </div>
           </div>
@@ -239,6 +236,103 @@
     </div>
   </div>
 </section> -->
+
+<!-- Project Contributions Section -->
+<section class="section section-md" aria-label="Project contributions">
+  <div class="container-xxl">
+    <div class="row justify-content-center mb-4">
+      <div class="col-18 position-relative">
+        <div class="divider">
+          <span>&nbsp;&nbsp; Project Contributions</span>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-14">
+        <div class="table-responsive">
+          <table class="table table-borderless project-contributions-table">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Domain / Type</th>
+                <th>Key Tech Stack</th>
+                <th>Key Contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr data-project-id="erp-platform">
+                <td>ERP Platform</td>
+                <td><span class="contrib-domain">Enterprise SaaS</span></td>
+                <td>ABP · .NET · Angular · Microservices</td>
+                <td>Delivered modules and improvements across sales, inventory, and CRM on a live multi-tenant platform</td>
+              </tr>
+              <tr data-project-id="hotel-management-system">
+                <td>Hotel Management</td>
+                <td><span class="contrib-domain">SaaS</span></td>
+                <td>ABP · DDD · Angular · PostgreSQL</td>
+                <td>Built booking engine, payment integration, and custom recurring billing from scratch for a Saudi enterprise client</td>
+              </tr>
+              <tr data-project-id="hospital-management">
+                <td>Hospital Management</td>
+                <td><span class="contrib-domain">Healthcare SaaS</span></td>
+                <td>Blazor · ABP · Modular Monolith</td>
+                <td>Owned core module development on a greenfield rewrite of a legacy healthcare system for a Greece-based client, modernizing it into a modular monolith with ABP Framework</td>
+              </tr>
+              <tr data-project-id="geotechnical-solution">
+                <td>Geotechnical Solution</td>
+                <td><span class="contrib-domain">Enterprise MVC</span></td>
+                <td>MVC · PdfSharp</td>
+                <td>Automated PDF report generation and built backend workflows for a large-scale US enterprise system</td>
+              </tr>
+              <tr data-project-id="sales-inventory-management">
+                <td>Sales &amp; Inventory</td>
+                <td><span class="contrib-domain">SaaS</span></td>
+                <td>Modular Monolith · Angular · PostgreSQL</td>
+                <td>Built inventory tracking and sales pipeline modules; contributed to modularization from a monolithic codebase</td>
+              </tr>
+              <tr data-project-id="task-management">
+                <td>Task Management</td>
+                <td><span class="contrib-domain">Productivity SaaS</span></td>
+                <td>.NET MAUI · Blazor Hybrid</td>
+                <td>Developed cross-platform desktop/web app; built an Adobe Photoshop extension for workflow-based time tracking</td>
+              </tr>
+              <tr data-project-id="visit-management">
+                <td>Visit Management</td>
+                <td><span class="contrib-domain">Field Service App</span></td>
+                <td>.NET MAUI · Blazor · Elsa Workflow</td>
+                <td>Implemented configurable approval workflows, invitation flows, and visitor registration using Elsa Workflow engine</td>
+              </tr>
+              <tr data-project-id="automobile-solution">
+                <td>Automobile Solution</td>
+                <td><span class="contrib-domain">Enterprise App</span></td>
+                <td>CQRS · MediatR · Blazor</td>
+                <td>Applied CQRS pattern to structure car inventory and profile management with clean command/query separation</td>
+              </tr>
+              <tr data-project-id="lms-kidoo">
+                <td>LMS</td>
+                <td><span class="contrib-domain">Education System</span></td>
+                <td>MVC · ASP.NET Core</td>
+                <td>Shipped course and exam features; supported migration from monolith to modular architecture</td>
+              </tr>
+              <tr data-project-id="mentoring-platform">
+                <td>Mentoring Platform</td>
+                <td><span class="contrib-domain">SaaS</span></td>
+                <td>ASP.NET Zero · Angular</td>
+                <td>Delivered functional modules for a multi-tenant mentoring and scheduling platform</td>
+              </tr>
+              <tr data-project-id="campaign-management">
+                <td>Campaign Management</td>
+                <td><span class="contrib-domain">SaaS</span></td>
+                <td>MVC</td>
+                <td>Built pledge and donation tracking workflows with operational reporting for campaign management</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Latest Blog Posts Section -->
 <section class="section section-md" aria-label="Latest blog posts">
