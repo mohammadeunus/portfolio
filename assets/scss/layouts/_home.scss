@@ -946,6 +946,8 @@
 .project-contributions-table {
   font-size: 0.875rem;
   width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
 
   thead th {
     font-size: 0.75rem;
@@ -953,35 +955,44 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: $gray-500;
-    border-bottom: 1px solid $border-color;
-    padding: 0 0.75rem 0.75rem;
+    padding: 0 0.75rem 0.5rem;
     white-space: nowrap;
 
-    &:first-child { padding-left: 0; }
+    &:first-child { padding-left: 1rem; }
   }
 
   tbody tr {
-    border-bottom: 1px solid $border-color;
-    transition: background 0.15s ease;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: 12px;
+    transition: box-shadow 0.15s ease, background 0.15s ease;
 
-    &:last-child { border-bottom: 0; }
-
-    &:hover { background: rgba($primary, 0.03); }
+    &:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      background: rgba($primary, 0.02);
+    }
   }
 
   tbody td {
-    padding: 0.7rem 0.75rem;
+    padding: 0.85rem 0.75rem;
     vertical-align: middle;
     line-height: 1.5;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
 
     &:first-child {
-      padding-left: 0;
       font-weight: 600;
       white-space: nowrap;
+      padding-left: 1rem;
+      border-left: 1px solid $border-color;
+      border-radius: 12px 0 0 12px;
     }
 
     &:last-child {
       color: $gray-600;
+      padding-right: 1rem;
+      border-right: 1px solid $border-color;
+      border-radius: 0 12px 12px 0;
     }
   }
 }
@@ -1000,17 +1011,22 @@
 [data-dark-mode] body .project-contributions-table {
   thead th {
     color: $gray-400;
-    border-bottom-color: $border-dark;
   }
 
   tbody tr {
-    border-bottom-color: $border-dark;
+    background: $body-bg-dark;
+    border-color: $border-dark;
 
-    &:hover { background: rgba(255, 255, 255, 0.03); }
+    &:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      background: rgba(255, 255, 255, 0.03);
+    }
   }
 
-  tbody td:last-child {
-    color: $gray-400;
+  tbody td {
+    border-color: $border-dark;
+
+    &:last-child { color: $gray-400; }
   }
 }
 
@@ -1021,10 +1037,83 @@
 
 @media (max-width: 767.98px) {
   .project-contributions-table {
-    font-size: 0.8rem;
+    font-size: 0.875rem;
+    border-spacing: 0 0.4rem;
 
-    tbody td:first-child {
-      white-space: normal;
+    // hide table header on mobile
+    thead { display: none; }
+
+    // each row becomes a block card
+    tbody tr {
+      display: block;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 0.6rem;
     }
+
+    // all cells become block rows inside the card
+    tbody td {
+      display: block;
+      border: none;
+      padding: 0.25rem 1rem;
+      border-radius: 0;
+
+      &:first-child {
+        padding-top: 0.85rem;
+        border-radius: 10px 10px 0 0;
+        white-space: normal;
+        font-weight: 600;
+      }
+
+      &:nth-child(2) {
+        padding-bottom: 0.85rem;
+        border-radius: 0 0 10px 10px;
+      }
+
+      // tech stack + contribution hidden by default
+      &:nth-child(3),
+      &:nth-child(4) {
+        display: none;
+        padding-top: 0.25rem;
+      }
+
+      &:last-child {
+        padding-bottom: 0.85rem;
+        border-radius: 0 0 10px 10px;
+        color: $gray-600;
+      }
+    }
+
+    // expand chevron indicator
+    tbody tr::after {
+      content: "›";
+      position: absolute;
+      right: 1rem;
+      top: 0.85rem;
+      font-size: 1.1rem;
+      color: $gray-500;
+      transform: rotate(90deg);
+      transition: transform 0.2s ease;
+      line-height: 1;
+    }
+
+    tbody tr.is-expanded::after {
+      transform: rotate(-90deg);
+    }
+
+    tbody tr.is-expanded td:nth-child(3),
+    tbody tr.is-expanded td:nth-child(4) {
+      display: block;
+    }
+
+    tbody tr.is-expanded td:nth-child(2) {
+      border-radius: 0;
+      padding-bottom: 0.25rem;
+    }
+  }
+
+  [data-dark-mode] body .project-contributions-table tbody td:last-child {
+    color: $gray-400;
   }
 }
