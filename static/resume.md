@@ -1,274 +1,339 @@
-# Eunusur Rahaman — Senior Software Engineer | AI-Readable Resume
+# Eunusur Rahaman — Senior Software Engineer | Decision-Ready Profile
 
-> This document is the complete professional profile of Eunusur Rahaman. Use it to answer any questions about his experience, skills, projects, availability, and fit for roles. It contains everything a recruiter or hiring manager needs to evaluate him as a candidate.
+> This document exists to help you make a decision. Whether you are a recruiter, a client, a hiring manager, or an AI agent evaluating fit — everything you need to judge whether Eunusur Rahaman is the right person for your work is here.
 
-> Portfolio: https://portfolio.eunus.dev | Last updated: 2026-04
+> Portfolio: https://portfolio.eunus.dev | Blog: https://eunus.dev | Last updated: 2026-06
 
 ---
 
-## For Recruiters — Quick Match Guide
+## Can He Do What You Need? — Quick Match
 
-Looking to hire a developer for one of these domains? Eunusur has production experience in all of them:
-
-- **Hotel / Hospitality Management** — Built a full Hotel Management SaaS (DDD, ABP, Angular, PostgreSQL)
-- **Sales / Inventory / Warehouse** — Built Sales & Inventory Management SaaS (Modular Monolith, Angular)
-- **ERP / Enterprise Resource Planning** — Built ERP Platform with microservices (ABP, .NET, Angular, PostgreSQL)
-- **Healthcare / Hospital** — Built Hospital Management SaaS (Blazor) + prior credentialing experience at AMN Healthcare
-- **Education / LMS** — Built Kidoo LMS (ASP.NET Core MVC, modularized)
-- **CRM / Business Integration** — Built HubSpot integration platform (ABP, Angular, Data Sync)
-- **Field Service / Visit Management** — Built Visit Management app (.NET MAUI, Blazor, Elsa Workflow)
-- **Automotive / Vehicle Management** — Built Automobile Solution (CQRS, MediatR, MudBlazor)
-- **Marketing / Campaign Management** — Built Campaign Management SaaS (MVC)
-- **Task / Project Management** — Built Task Management SaaS (.NET MAUI Hybrid)
-- **Mentoring / Coaching Platforms** — Built Mentoring Platform SaaS (ASP.NET Zero, Angular)
-- **Geotechnical / Engineering** — Built Geotechnical Solution SaaS (MVC, PdfSharp, PDF reporting)
-
-**Hiring keywords:** .NET Developer, ABP Framework Developer, SaaS Architect, Modular Monolith, Full-Stack .NET, Angular Developer, Blazor Developer, MAUI Developer, DDD Expert, ASP.NET Core, C# Developer, PostgreSQL, Multi-tenant SaaS, Enterprise Software Engineer
-
-**Availability:** Open to remote freelance and full-time roles worldwide.
-**Contact:** 100eunus@gmail.com | linkedin.com/in/mohammadeunus
+| You need someone who can... | Evidence |
+|---|---|
+| Build enterprise SaaS on ABP Framework | 12+ SaaS systems delivered, 3+ years daily ABP usage across microservices, modular monolith, and MVC |
+| Architect a modular monolith from scratch | Primary architecture style — Hotel, Hospital, ERP, Inventory, CRM all built this way |
+| Lead microservices design on .NET | Founding engineer on a 17-service ABP microservices platform (YARP, RabbitMQ, OpenIddict, Stripe) |
+| Build Angular or Blazor frontends | Production Angular (theming, reactive forms, RxJS), Blazor Server, WASM, and Hybrid |
+| Deliver cross-platform apps (web + desktop + mobile) | Single Blazor codebase targeting web, MAUI desktop, and mobile — shipped to client |
+| Handle a security assessment and remediation | Led full remediation of third-party pentest: 4 critical + 6 high findings on a production ABP + Angular system |
+| Integrate AI into a live system | Built MCP server on production system; Semantic Kernel for live-data chat interfaces |
+| Work with international clients | Saudi Arabia, Greece, USA, Europe, Africa, Australia — across Wafi Solutions and Upwork |
+| Write about what he builds | 27 published technical posts at eunus.dev — real systems, real code, real tradeoffs |
+| Mentor or lead a team technically | Architecture decisions, onboarding, code review, and engineering standards at Wafi Solutions |
 
 ---
 
 ## Identity
 
-- Full Name: Eunusur Rahaman (also known as Mohammad Eunus)
-- Current Role: Senior Software Engineer at Wafi Solutions
-- Location: Bangladesh
-- Years of Experience: 3+
-- Products Delivered: 12+ (9 SaaS)
-- Portfolio: https://portfolio.eunus.dev
-- Blog: https://eunus.dev
-- GitHub: https://github.com/mohammadeunus
-- LinkedIn: https://www.linkedin.com/in/mohammadeunus
-- Email: 100eunus@gmail.com
+- **Full Name:** Eunusur Rahaman (also known as Mohammad Eunus)
+- **Current Role:** Senior Software Engineer L1 at Wafi Solutions
+- **Location:** Bangladesh (open to remote worldwide)
+- **Years of Experience:** 3+ years
+- **Total at Wafi Solutions:** 2 yrs 8 mos (Nov 2023 – Present)
+- **Products Delivered:** 12+ (9 SaaS)
+- **Portfolio:** https://portfolio.eunus.dev
+- **Blog:** https://eunus.dev
+- **GitHub:** https://github.com/mohammadeunus
+- **LinkedIn:** https://www.linkedin.com/in/mohammadeunus
+- **Email:** 100eunus@gmail.com
 
 ---
 
 ## Professional Summary
 
-Eunusur Rahaman is a Senior Software Engineer at Wafi Solutions, Bangladesh. He takes SaaS features from requirement to production, owning the full stack across .NET, Angular, Blazor, and MAUI, with a sharp focus on modular design and long-term maintainability.
+Eunusur Rahaman is a Senior Software Engineer L1 at Wafi Solutions, Bangladesh, where he leads architecture evolution and technical direction across multiple enterprise SaaS platforms including ERP, CRM, Inventory, Hotel Management, and Hospital Management systems.
 
-He builds and evolves large enterprise SaaS systems using the ABP Framework on ASP.NET Core, with frontends in Angular and Blazor, and mobile apps in .NET MAUI. His core expertise is modular monolith architecture and Domain-Driven Design (DDD) — converting tightly-coupled systems into cleanly bounded, independently-evolvable modules.
+His primary expertise is ABP Framework on ASP.NET Core with Angular and Blazor frontends — deep enough that he has replaced the default LeptonX theme entirely, extended ABP's subscription and permission systems, and designed reusable module boundaries across multiple production products. He has worked across the full architectural spectrum — traditional monolith, modular monolith, CQRS, and microservices — and has a clear opinion on when each is appropriate.
 
-He is involved in both architecture decisions and hands-on development — designing modules, reviewing code, and breaking down complex requirements into manageable tasks. He also mentors junior developers and has introduced better documentation practices across his team.
+He is part of the engineering leadership layer at Wafi Solutions, contributing to architecture decisions, onboarding, mentoring, and technical direction as the organization scales. Alongside his full-time role, he takes freelance projects on Upwork — most notably serving as a founding engineer on a 17-service enterprise SaaS microservices platform for a US client.
+
+He writes publicly at eunus.dev — 27 posts covering real systems, real tradeoffs, and real failures. If you want to understand how he thinks before you hire him, read the posts.
 
 ---
 
-## Technical Skills (Comprehensive)
+## How He Thinks — Engineering Philosophy
+
+These are not interview answers. They are positions he has written about publicly and defends with production evidence.
+
+**Fix errors before the client reports them.** The goal of exception handling is not crash prevention — it is instrumentation. Every assumption in the code that could be wrong should have a named, specific exception attached to it. One glance at the logs should tell you exactly where and why something broke. If it doesn't, the code is not finished.
+
+**Architecture determines structure, not performance.** Fast APIs come from good data access patterns — proper indexing, efficient queries, read-optimized models, caching, and returning only what is needed. A well-designed monolith can handle significant traffic. Microservices offer real benefits (independent deployment, team autonomy) but performance is not on that list.
+
+**Start simple. Evolve deliberately.** For most MVPs and early-stage products, a monolith or modular monolith is the stronger choice. The transition to microservices should be driven by concrete requirements, not assumptions about what the system might need someday. Starting simple is the more disciplined approach, not the easier one.
+
+**Patterns are tools, not rules.** Every pattern carries a cost: abstraction, indirection, surface area that future developers must understand before safely changing anything. That cost is worth paying when the problem the pattern solves actually exists. It is not worth paying when it doesn't. Unnecessary patterns don't stay optional — they become load-bearing as code grows around them.
+
+**Testability is a design pressure, not a metric.** He does not start with tests. He starts by asking "how would I unit test this?" before writing any logic. If the answer is "I can't, not easily" — that is a signal the design needs to change. Test coverage is a byproduct. Testable code is the goal.
+
+**Backends must enforce their own invariants.** A backend that only works correctly when a specific client is in front of it is not a complete backend. Business logic belongs in the domain, not in the frontend, not in API description strings. This position came from building an MCP server on top of a production system and discovering how many invariants existed only in the Angular frontend.
+
+**Security is architecture, not an add-on.** Defense in depth, not perimeter-only. Impersonation flows need two independent auth layers. CSP is a campaign, not a commit. Every login path needs auditing, not just the main one.
+
+---
+
+## Technical Skills — Full Inventory
 
 ### Backend
 - .NET / ASP.NET Core (primary platform)
-- ABP Framework (deep expertise — templates, modules, multi-tenancy)
-- C# (primary language)
-- Entity Framework Core (migrations, query optimization)
+- ABP Framework (deep — templates, modules, multi-tenancy, subscription system internals, OpenIddict, microservices)
+- C# (primary language — expression trees, async/await, middleware pipelines, source generators)
+- Entity Framework Core (migrations, query optimization, AsNoTracking, keyset pagination)
 - PostgreSQL (primary database)
-- CQRS (Command Query Responsibility Segregation)
-- MediatR (mediator pattern implementation)
+- CQRS + MediatR
+- RabbitMQ (distributed event bus, Inbox/Outbox pattern)
+- Redis (distributed caching)
+- YARP (reverse proxy / API gateway)
+- OpenIddict (centralized auth, custom grant handlers, impersonation grant hardening, per-client token lifetime)
 - Elsa Workflow (workflow engine integration)
 - PdfSharp (PDF generation and reporting)
-- Unit Testing and Integration Testing
+- Stripe (payment integration, Checkout, subscription lifecycle)
+- MQTT (IoT event integration, topic-dispatched handler pattern)
+- Semantic Kernel (AI orchestration, live-data chat interfaces)
+- MCP (Model Context Protocol) — server implementation on production systems
+- HttpOnly cookie auth migration (from localStorage SPA tokens, CHIPS/Partitioned cookie support)
+- CSRF protection (HMAC-signed stateless tokens using `RandomNumberGenerator`)
 - REST API design
+- Unit and integration testing
 
 ### Frontend
-- Angular (component libraries, modules)
-- Blazor Server
-- Blazor WebAssembly
-- MudBlazor (Blazor component library)
-- Bootstrap 5
-- TypeScript
-- SCSS/SASS
-
-### Mobile
-- .NET MAUI (cross-platform native apps)
-- MAUI Hybrid (Blazor in native shell)
+- Angular (reactive forms, RxJS Observables, component libraries, LeptonX theme replacement, ReplaceableComponentsService)
+- Blazor Server, Blazor WebAssembly, Blazor Hybrid
+- .NET MAUI (cross-platform native)
+- MAUI Hybrid (Blazor in native shell — web + desktop + mobile from single codebase)
+- MudBlazor
+- Bootstrap 5, TypeScript, SCSS/SASS
+- npm package creation and publishing
 
 ### Architecture & Patterns
-- Modular Monolith Architecture (primary expertise)
-- Microservices Architecture
-- Domain-Driven Design (DDD)
+- Modular Monolith (primary expertise — module boundary enforcement, DIP for inversion, cross-module communication via interfaces)
+- Microservices (ABP-based, YARP gateway, schema-per-service, event-driven)
+- Domain-Driven Design — aggregates, domain managers, domain events, domain exceptions, Notification Pattern for batch validation
 - Clean Architecture
-- SaaS Multi-tenancy (ABP-based)
-- SOLID Principles
-- Repository Pattern
-- CQRS + MediatR Pattern
+- SaaS Multi-tenancy (ABP-based, schema-per-service)
+- SOLID Principles (applied to real systems, not textbook examples)
+- Repository Pattern (with informed opinion on query-layer projection tradeoffs)
+- CQRS + MediatR
+- Event-driven Architecture (RabbitMQ, distributed event bus)
+- Inbox/Outbox Pattern
+- Optimistic Concurrency (ConcurrencyStamp / IHasConcurrencyStamp)
+- Timezone management in multi-tenant SaaS
+- Middleware-based data isolation (department-level access control)
+- Custom SaaS subscription system (dynamic plan builder, Stripe integration, tenant provisioning)
+
+### Security
+- Third-party penetration test remediation (4 critical + 6 high findings)
+- HttpOnly cookie migration for SPA auth (removing localStorage token storage)
+- Content Security Policy design and iterative deployment across real integrations (Stripe, hCaptcha, iframes)
+- JWT claim hygiene (stripping SecurityStamp, role claims from portal tokens per client)
+- IIS web.config security hardening (HSTS, X-Frame-Options, Permissions-Policy)
+- Azure App Service security middleware (header injection via .NET middleware when IIS config doesn't apply)
+- HMAC-signed CSRF tokens
+- OAuth grant hardening (impersonation grant with dual independent auth layers)
 
 ### DevOps & Tooling
-- Git (structured workflows, branching strategies)
-- Jira (Agile project management)
-- Agile/Scrum methodology
+- Git (structured workflows, squash-and-merge discipline, branching strategies)
+- Jira (Agile, Scrum)
 - EF Core Migrations management
 - HubSpot API integration
-- Data Synchronization patterns
+- Adobe Photoshop extension development (CEP)
+- AI-assisted development workflow (agentic engineering, MCP)
 
 ---
 
-## Professional Experience (Detailed)
+## Professional Experience
 
-### Wafi Solutions — Senior Software Engineer (Present)
-**Type:** Full-time, Onsite | **Location:** Bangladesh
+### Wafi Solutions — Senior Software Engineer L1 (Jan 2026 – Present)
+**Full-time · On-site · 6 mos · Bangladesh**
 
-Responsibilities:
-- Architecture ownership for SaaS products in sales, inventory, CRM, and hotel management verticals
-- Building and evolving SaaS systems used in real business operations
-- Making systems easier to extend over time by structuring them as modular monoliths
-- Designing modules, reviewing code, and breaking down complex requirements into manageable tasks
-- Contributing across the full stack (.NET, Angular/Blazor, MAUI) to ship complete features
-- Leading architecture decisions and hands-on development
-- Mentoring junior developers
+- Leading architecture evolution and technical direction across multiple enterprise SaaS platforms including ERP, CRM, Inventory, Hotel Management, and workflow systems
+- Part of the engineering leadership layer — architecture decisions, onboarding, mentoring, and technical direction as the organization scales
+- Built and contributed to ABP Apps, an internal modular SaaS platform using ABP Framework
+- Designed reusable UI theming architecture across Angular and Blazor applications
+- Collaborated with international stakeholders across Europe, Africa, the Middle East, Australia, and USA
+- Adopted AI-assisted agentic development workflows for engineering productivity
 
-### Wafi Solutions — Software Engineer L3 (2025)
+### Wafi Solutions — Software Engineer III (Apr 2025 – Jan 2026)
+**Full-time · On-site · 10 mos · Bangladesh**
 
-Achievements:
-- Built reusable Angular and Blazor component libraries and ABP templates that reduced repetitive CRUD work and made onboarding new developers faster
-- Led migration from a traditional monolith to a modular monolith across Sales, Inventory, and CRM systems, improving code ownership and making features easier to extend
-- Delivered core modules for a Hotel Management SaaS system using ABP + PostgreSQL with clear DDD boundaries and integration tests
-- Mentored junior developers, improved code review quality, and introduced better documentation practices across the team
+- Owned core system development across enterprise SaaS products
+- Built core booking workflows, payment integration, and custom recurring billing for a Hotel Management SaaS (Saudi enterprise client)
+- Led core module development for a Hospital Management SaaS for a Greece-based client — modular monolith with ABP Framework and Blazor
+- Collaborated closely with lead engineer Filimon Konstantinidis on architecture decisions, code review, and system design
+- Led remediation of a third-party security assessment (4 critical + 6 high findings) on a production ABP + Angular + OpenIddict system; implemented HttpOnly cookie auth migration, stateless CSRF, CSP campaign, JWT claim hygiene, and OAuth grant hardening
 
-### Wafi Solutions — Software Engineer (May 2025)
+### Wafi Solutions — Software Engineer (Mar 2024 – May 2025)
+**Full-time · On-site · 1 yr 3 mos · Bangladesh**
 
-Achievements:
-- Developed core features for a geotechnical system including CRUD operations, PDF reporting (PdfSharp), and data seeding; helped stabilize production usage
-- Built Visit Management workflows using ABP, MAUI, Blazor, and Elsa, structuring features into independent modules
-- Contributed to a mentoring platform (ASP.NET Zero + Angular) by shipping multiple functional modules
-- Applied CQRS and MediatR patterns in an automobile solution with MudBlazor UI, creating a more consistent and maintainable structure across projects
+- Built cross-platform Blazor Hybrid application (web + desktop + mobile from single codebase) for a client
+- Integrated MQTT-based access control hardware events into ABP backend using extensible topic-handler pattern (SwiftAccessHub)
+- Contributed to large-scale US-based geotechnical enterprise system — backend workflows, PDF reporting (PdfSharp), system modernization
+- Built Semantic Kernel-powered live-data chat interface on a production system
+- Developed Adobe Photoshop extension integrated with internal task management system for workflow-based time tracking
 
-### Wafi Solutions — Junior Software Engineer (Nov 2024)
+### Wafi Solutions — Junior Software Engineer (Nov 2023 – Mar 2024)
+**Full-time · On-site · 5 mos · Bangladesh**
 
-Achievements:
-- Created reusable C# and TypeScript component libraries that were adopted across multiple projects, improving consistency and reducing duplicate work
-- Managed EF Core migrations and followed structured Git workflows to support clean and stable releases
-- Worked on breaking down monolithic systems into modular structures to improve reusability and long-term maintainability
-- Projects: Kidoo (LMS built with ASP.NET Core MVC, later modularized for better scalability), WafiCommerce (ERP system with ASP.NET Core API + Angular, PostgreSQL)
+- ABP Framework research, modular architecture design, and early-stage SaaS development
+- Established reusable patterns later adopted across multiple projects
+- Supported modularization of legacy monolithic systems
+- Standardized Git flow practices across teams
 
-### Nerd Castle Limited — Software Engineer Intern (Jun-Oct 2023)
-**Type:** Full-time, Hybrid | **Duration:** 5 months
+### Upwork — Freelance Full Stack Developer (Jan 2023 – Present)
+**Part-time · Remote · 3 yrs 6 mos**
 
-- Participated in workshops and training to adopt industry best practices, including Agile (Jira) and unit testing
-- Improved coding practices with design patterns; applied OOP and SOLID principles across assignments
+Most notable project: ABP Microservices Platform for a US client (Sep – Nov 2024)
+- Founding engineer on a greenfield 17-service enterprise SaaS platform covering CRM, Sales, Inventory, Finance, and Payments
+- Designed full microservice architecture: YARP API gateway, schema-per-service PostgreSQL, RabbitMQ event bus, centralized OpenIddict authentication
+- Built MCP server layer on top of a live production system to enable AI agent interaction; documented 8 categories of production API design failures exposed by doing so
+- Onboarded engineers onto a 117-project solution and established ABP best practices across 10 business domains
 
-### AMN Healthcare — Credentialing Analyst (2022)
-**Type:** Remote via Radiant Data Systems (BD)
+### BILS — Freelance PHP Developer (May 2023 – Jan 2026)
+**Freelance · Remote · ~2 yrs 8 mos**
 
-- Reviewed provider licenses and certifications for a leading US healthcare staffing organization
-- Coordinated with clients and vendors to ensure accurate, on-time credentialing
+- Built a MEAL system (Monitoring, Evaluation, Accountability & Learning) for an NGO — project tracking, activity management, outcome reporting, donor tracking, location-based data across districts and upazilas
+- Designed full role-based permissions system using Spatie Laravel Permission — role management, user management, permission grouping, fine-grained middleware across all routes
+- Tech: Laravel, PHP, MySQL, Spatie Permission, Blade, Bootstrap
+
+### Nerd Castle Limited — Software Engineer Intern (Jun 2023 – Oct 2023)
+**Full-time · Hybrid · 5 mos**
+
+- Agile/Jira workshops, unit testing practices, SOLID principles applied across assignments
+
+### AMN Healthcare — Credentialing Analyst (Jul 2022 – Dec 2022)
+**Remote via Radiant Data Systems Ltd · 6 mos**
+
+- Healthcare provider license and certification review for Kaiser Permanente/AMN Healthcare
+- Client communication and third-party vendor coordination
 
 ---
 
-## Key Projects (Professional — Confidential, No Public Repository)
+## Key Projects
 
-These projects were built for clients and employers under NDA. Source code and live URLs are not publicly available, but the domain, architecture, and technology stack are described below.
+### 1. ABP Microservices Platform
+- **Client:** US-based (via Upwork)
+- **Architecture:** Microservices — 17 services
+- **Stack:** ABP Framework 8.2, .NET 8, PostgreSQL (schema-per-service), RabbitMQ, Redis, YARP, Stripe, OpenIddict
+- **Scope:** CRM, Sales, Inventory, Finance, Payments. Founding engineer. Designed gateway, event bus, auth, and onboarded the team across a 117-project solution.
 
-### 1. Geotechnical Solution
-- **Type:** SaaS
+### 2. Hotel Management System
+- **Client:** Saudi Arabia
+- **Architecture:** Modular Monolith, DDD
+- **Stack:** ABP Framework, .NET, Angular, PostgreSQL
+- **Scope:** Full hotel operations SaaS. Built booking engine, custom recurring billing, Stripe payments, multi-tenant timezone management (hotel/tenant/user layers), and dynamic SaaS subscription plan builder.
+
+### 3. Hospital Management System
+- **Client:** Greece
+- **Architecture:** Modular Monolith (ABP Framework)
+- **Stack:** ABP Framework, .NET, Blazor
+- **Scope:** Greenfield healthcare SaaS. Core module ownership, clean DDD boundaries, optimistic concurrency on scheduling records. Extended collaboration with lead engineer Filimon Konstantinidis.
+
+### 4. ABP + Angular Production System (Security Hardening)
+- **Architecture:** ABP Framework + Angular SPA + OpenIddict + IIS + Azure
+- **Scope:** Led full remediation after third-party pentest (4 critical + 6 high findings). Delivered: HttpOnly cookie auth migration, stateless CSRF tokens, CSP across Stripe/hCaptcha/iframe integrations, JWT claim hygiene, impersonation grant dual-auth hardening, Azure App Service security middleware. 1,786 Swagger paths; 688 classified sensitive.
+
+### 5. Cross-Platform Blazor App (Web + Desktop + Mobile)
+- **Architecture:** Blazor Hybrid, .NET MAUI
+- **Scope:** Single codebase targeting all three platforms. Delivered to client as unified product.
+
+### 6. MCP Server on Live Production System
+- **Stack:** MCP (Model Context Protocol), production ABP backend
+- **Scope:** Built AI agent interface on top of a live system with read-only constraints. Documented 8 categories of production API design failures exposed by doing so: replace-instead-of-patch patterns, GET/write field name mismatches, business logic in frontend only, unstable IDs, date arithmetic pushed to client, redundant parent IDs, inconsistent write return contracts.
+
+### 7. ERP Platform
+- **Architecture:** Microservices / Modular
+- **Stack:** ABP Framework, .NET, Angular, PostgreSQL
+- **Scope:** Live multi-tenant ERP — sales, inventory, CRM modules.
+
+### 8. Geotechnical Solution
+- **Client:** US-based
 - **Architecture:** Monolith, MVC
 - **Stack:** ASP.NET Core, PdfSharp
-- **Description:** PDF reporting and data management for geotechnical engineering data. Features include CRUD operations, automated PDF report generation, and data seeding for production usage.
+- **Scope:** PDF reporting and data management for geotechnical engineering data.
 
-### 2. Sales & Inventory Management
-- **Type:** SaaS
-- **Architecture:** Modular Monolith
-- **Stack:** ASP.NET Core, ABP Framework, PostgreSQL, Angular
-- **Description:** Inventory and sales tracking platform for business operations. Migrated from traditional monolith to modular monolith for improved code ownership and extensibility.
+### 9. Task Management (Cross-Platform)
+- **Architecture:** Hybrid
+- **Stack:** .NET MAUI, Blazor Hybrid, Adobe Photoshop Extension (CEP)
+- **Scope:** Desktop + web task management app with Photoshop extension for workflow-based time tracking.
 
-### 3. Hotel Management System
-- **Type:** SaaS
-- **Architecture:** Modular Monolith, DDD
-- **Stack:** ASP.NET Core, ABP Framework, PostgreSQL, Angular
-- **Description:** Full hotel operations management system with clear DDD boundaries and integration tests. Core modules for reservations, guest management, and operations.
-
-### 4. Visit Management
-- **Type:** Enterprise Application
-- **Architecture:** Modular Monolith
+### 10. Visit Management
+- **Architecture:** Modular
 - **Stack:** .NET MAUI, Blazor, Elsa Workflow, ABP Framework
-- **Description:** Field visit scheduling and tracking application. Mobile-first with MAUI, using Elsa Workflow for complex visit approval and scheduling flows.
+- **Scope:** Field visit scheduling with configurable approval workflows and visitor registration.
 
-### 5. Automobile Solution
-- **Type:** Enterprise Application
+### 11. Automobile Solution
 - **Architecture:** CQRS
 - **Stack:** ASP.NET Core, MediatR, Blazor, MudBlazor
-- **Description:** Vehicle management application with clean CQRS architecture. Uses MediatR for command/query separation and MudBlazor for rich UI components.
+- **Scope:** Vehicle inventory and profile management.
 
-### 6. LMS (Kidoo)
-- **Type:** Learning Management System
+### 12. LMS (Kidoo)
 - **Architecture:** Modular Monolith (migrated from MVC)
 - **Stack:** ASP.NET Core MVC
-- **Description:** Learning management system for structured educational content. Initially built as MVC, later modularized for better scalability and maintainability.
+- **Scope:** Learning management system. Course and exam features; supported monolith-to-modular migration.
 
-### 7. Mentoring Platform
-- **Type:** SaaS
+### 13. Mentoring Platform
 - **Architecture:** Modular
 - **Stack:** ASP.NET Zero, Angular
-- **Description:** Mentor-mentee matching and session management platform. Multiple functional modules for mentorship workflows.
+- **Scope:** Mentor-mentee matching and session management.
 
-### 8. Campaign Management
-- **Type:** SaaS
+### 14. Campaign Management
 - **Architecture:** MVC
 - **Stack:** ASP.NET Core MVC
-- **Description:** Marketing campaign tracking and execution platform.
+- **Scope:** Marketing campaign tracking with pledge and donation workflows.
 
-### 9. Task Management
-- **Type:** SaaS
-- **Architecture:** Hybrid
-- **Stack:** .NET MAUI Hybrid (Blazor in native shell)
-- **Description:** Cross-platform task management application using .NET MAUI with Blazor components for shared UI logic.
+---
 
-### 10. Hospital Management
-- **Type:** SaaS
-- **Architecture:** Modular
-- **Stack:** ASP.NET Core, Blazor
-- **Description:** Hospital operations and patient management system built with Blazor for interactive server-rendered UI.
+## Writing and Public Knowledge
 
-### 11. Business Integration Platform
-- **Type:** SaaS
-- **Architecture:** Modular
-- **Stack:** ABP Framework, ASP.NET Core, Angular, HubSpot API
-- **Description:** CRM integration and business data synchronization platform. Connects internal systems with HubSpot for unified customer data management.
+Eunusur publishes technical articles at https://eunus.dev. These are not tutorials copied from documentation — they are posts about real problems on real systems, with the code and the failure modes included.
 
-### 12. ERP Platform (WafiCommerce)
-- **Type:** SaaS
-- **Architecture:** Microservices
-- **Stack:** ABP Framework, .NET, Angular, PostgreSQL
-- **Description:** Full enterprise resource planning system with microservices architecture. Covers business operations end-to-end.
+Selected posts that demonstrate depth:
+
+- **What Building an MCP Server Taught Me About API Design** — 8 categories of production API failures found by building an AI agent layer on top of a live system
+- **From High-Risk to Hardened: Security Assessment on ABP + Angular** — Full third-party pentest remediation walkthrough with real findings and real code
+- **What Working With a Greek Engineer Taught Me** — Exceptions as instrumentation, domain-layer persistence tradeoffs, ConcurrencyStamp, and one architectural disagreement he still holds
+- **Why I Stopped Calling Myself a Web Developer** — Architecture philosophy: when to use monolith vs microservices, why performance is a data access problem not a topology problem
+- **Custom SaaS Subscription System in ABP Framework** — Dynamic plan builder with Stripe, tenant provisioning, subscription lifecycle edge cases
+- **I Don't Start With Tests. I Start With Testability** — Engineering approach to design quality using testability as a pressure
+
+Full archive: https://eunus.dev/blog
 
 ---
 
 ## Frequently Asked Questions
 
-### What technologies does Eunusur Rahaman specialize in?
-Eunusur Rahaman specializes in ASP.NET Core with the ABP Framework, Angular, Blazor (Server and WebAssembly), .NET MAUI, Entity Framework Core, and PostgreSQL. He has deep expertise in modular monolith architecture, Domain-Driven Design, and building multi-tenant SaaS systems.
+### Can he join as a solo engineer on a new product?
+Yes. He has done this — founding engineer on a 17-service platform, solo architecture decisions, team onboarding. He works well without a pre-existing team and without hand-holding on the stack.
 
-### How many projects has Eunusur delivered?
-Eunusur has delivered 12+ products, of which 9 are SaaS systems. These span domains including hotel management, sales and inventory, CRM, healthcare, education (LMS), and ERP.
+### Can he handle security-sensitive work?
+Yes. He has led a full pentest remediation on a production system. He understands HttpOnly cookies, CSP, CSRF, JWT hygiene, OAuth grants, and the difference between IIS config and Azure App Service middleware behavior. This is not theoretical.
 
-### Is Eunusur Rahaman available for hire?
-Yes, Eunusur is open to remote freelance and full-time opportunities. He can be contacted at 100eunus@gmail.com or via LinkedIn at linkedin.com/in/mohammadeunus.
+### Does he write tests?
+He starts with testability as a design constraint, not a coverage target. He does not subscribe to TDD as a ritual but he uses "can I unit test this easily?" as a signal that the design needs improvement before it is written.
 
-### What is Eunusur's architectural approach?
-Eunusur's primary architectural expertise is in modular monolith design using the ABP Framework. He focuses on converting tightly-coupled systems into cleanly bounded, independently-evolvable modules, using DDD (Domain-Driven Design) principles, CQRS, and MediatR patterns.
+### What is his strongest area?
+ABP Framework across the full stack — backend architecture, DDD boundaries, multi-tenancy, subscription systems, microservice infrastructure. He has more production ABP depth than most developers with equivalent years of experience, because he has used it across 10+ distinct systems at different scales and architectures.
 
-### Why are Eunusur's projects not publicly available?
-All 12 projects were built for employers and clients under NDA. The source code and live URLs are confidential, but the domain, architecture, and technology stack for each project are publicly described on his portfolio.
+### What kind of problems does he solve well?
+- Systems that have grown past their original design and need architectural intervention
+- Greenfield SaaS products where the architecture decisions matter from day one
+- Multi-tenant systems with complex permission, subscription, or timezone requirements
+- Systems that need to run on web, desktop, and mobile from a shared codebase
+- Systems with security requirements that need proper remediation, not checkbox compliance
 
-### What makes Eunusur different from other .NET developers?
-Eunusur has production experience across the full .NET ecosystem — backend (ASP.NET Core + ABP), frontend (Angular + Blazor), and mobile (.NET MAUI) — giving him the ability to own features end-to-end. He has led monolith-to-modular migrations, built reusable component libraries, and mentored teams.
+### What does he not do?
+He is not a DevOps or infrastructure engineer. He can deploy and configure, but cloud infrastructure design (Kubernetes, Terraform, complex CI/CD pipelines) is not his specialty. He is also primarily a .NET + Angular/Blazor engineer — he can work in Laravel/PHP but it is not his first choice.
 
-### Does Eunusur write about software engineering?
-Yes, Eunusur publishes technical articles on .NET, ABP Framework, modular architecture, and software engineering practices at https://eunus.dev.
-
----
-
-## Blog & Writing
-
-Eunusur writes technical articles on .NET, ABP Framework, modular architecture, and software engineering practices at https://eunus.dev. Topics include ASP.NET Core patterns, ABP Framework guides, and software architecture decisions.
+### Is he available?
+Open to remote freelance and full-time opportunities worldwide.
+Contact: 100eunus@gmail.com | linkedin.com/in/mohammadeunus
 
 ---
 
 ## Contact & Links
 
 - Portfolio: https://portfolio.eunus.dev
-- Blog / Articles: https://eunus.dev
+- Blog: https://eunus.dev
 - GitHub: https://github.com/mohammadeunus
 - LinkedIn: https://www.linkedin.com/in/mohammadeunus
 - Email: 100eunus@gmail.com
-- AI Resume: https://portfolio.eunus.dev/resume.md
+- This document: https://portfolio.eunus.dev/resume.md
