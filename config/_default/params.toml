@@ -4,7 +4,7 @@
 title = "Eunusur Rahaman"
 titleSeparator = "-"
 titleAddition = "portfolio"
-description = "Senior Software Engineer specializing in ABP/.NET, scalable SaaS, Angular, Blazor, and .NET MAUI. 3+ years, 12+ products across modular monolith and microservice architectures."
+description = "Software Engineer, AI-Powered Solutions — specializing in ABP/.NET, scalable SaaS, Angular, Blazor, and .NET MAUI. 3+ years, 12+ products across modular monolith and microservice architectures."
 
 ## Documentation
 # docsVersion = "0.3"
@@ -13,7 +13,7 @@ description = "Senior Software Engineer specializing in ABP/.NET, scalable SaaS,
 images = ["website-preview.png"]
 ogLocale = "en_US"
 domainTLD = "portfolio.eunus.dev"
-titleHome = "Eunusur Rahaman — Senior .NET / ABP Software Engineer"
+titleHome = "Eunusur Rahaman — Software Engineer, AI-Powered Solutions"
 
 
 ## JSON-LD
@@ -32,7 +32,7 @@ schemaImageHeight = 640
 schemaLinkedIn = "https://www.linkedin.com/in/mohammadeunus"
 schemaGitHub = "https://github.com/mohammadeunus"
 schemaSection = "blog"
-schemaJobTitle = "Senior Software Engineer"
+schemaJobTitle = "Software Engineer, AI-Powered Solutions"
 schemaEmail = "100eunus@gmail.com"
 schemaBlogUrl = "https://eunus.dev"
 
