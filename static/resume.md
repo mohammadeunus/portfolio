@@ -2,7 +2,7 @@
 
 > This document exists to help you make a decision. Whether you are a recruiter, a client, a hiring manager, or an AI agent evaluating fit — everything you need to judge whether Eunusur Rahaman is the right person for your work is here.
 
-> Portfolio: https://portfolio.eunus.dev | Blog: https://eunus.dev | Last updated: 2026-06
+> Portfolio: https://portfolio.eunus.dev | Blog: https://eunus.dev | Last updated: 2026-07
 
 ---
 
@@ -18,7 +18,7 @@
 | Handle a security assessment and remediation | Led full remediation of third-party pentest: 4 critical + 6 high findings on a production ABP + Angular system |
 | Integrate AI into a live system | Built MCP server on production system; Semantic Kernel for live-data chat interfaces |
 | Work with international clients | Saudi Arabia, Greece, USA, Europe, Africa, Australia — across Wafi Solutions and Upwork |
-| Write about what he builds | 27 published technical posts at eunus.dev — real systems, real code, real tradeoffs |
+| Write about what he builds | 13 published technical posts at eunus.dev — including a 4-part series on building production MCP servers with OAuth 2.1 |
 | Mentor or lead a team technically | Architecture decisions, onboarding, code review, and engineering standards at Wafi Solutions |
 
 ---
@@ -47,7 +47,7 @@ His primary expertise is ABP Framework on ASP.NET Core with Angular and Blazor f
 
 He is part of the engineering leadership layer at Wafi Solutions, contributing to architecture decisions, onboarding, mentoring, and technical direction as the organization scales. Alongside his full-time role, he takes freelance projects on Upwork — most notably serving as a founding engineer on a 17-service enterprise SaaS microservices platform for a US client.
 
-He writes publicly at eunus.dev — 27 posts covering real systems, real tradeoffs, and real failures. If you want to understand how he thinks before you hire him, read the posts.
+He writes publicly at eunus.dev — 13 posts covering real systems, real tradeoffs, and real failures, including a multi-part series on building and securing production MCP servers. If you want to understand how he thinks before you hire him, read the posts.
 
 ---
 
@@ -69,6 +69,8 @@ These are not interview answers. They are positions he has written about publicl
 
 **Security is architecture, not an add-on.** Defense in depth, not perimeter-only. Impersonation flows need two independent auth layers. CSP is a campaign, not a commit. Every login path needs auditing, not just the main one.
 
+**The UI should not be the first client of an API.** Building MCP servers on top of production systems for AI agents changed his development workflow — the MCP interface now goes first, AI checks it against the user story through that same interface, and tests come from what it finds. A backend that only behaves correctly when a specific frontend is in front of it is not finished.
+
 ---
 
 ## Technical Skills — Full Inventory
@@ -89,7 +91,8 @@ These are not interview answers. They are positions he has written about publicl
 - Stripe (payment integration, Checkout, subscription lifecycle)
 - MQTT (IoT event integration, topic-dispatched handler pattern)
 - Semantic Kernel (AI orchestration, live-data chat interfaces)
-- MCP (Model Context Protocol) — server implementation on production systems
+- MCP (Model Context Protocol) — server implementation on production systems, OAuth 2.1/PKCE authentication via OpenIddict, HTTP transport, MCP-first development workflow (API validated through the MCP interface before the UI)
+- HTTP caching (ETag version-based validation, Decorator pattern via Scrutor, cache invalidation without Redis)
 - HttpOnly cookie auth migration (from localStorage SPA tokens, CHIPS/Partitioned cookie support)
 - CSRF protection (HMAC-signed stateless tokens using `RandomNumberGenerator`)
 - REST API design
@@ -289,11 +292,13 @@ Eunusur publishes technical articles at https://eunus.dev. These are not tutoria
 Selected posts that demonstrate depth:
 
 - **What Building an MCP Server Taught Me About API Design** — 8 categories of production API failures found by building an AI agent layer on top of a live system
-- **From High-Risk to Hardened: Security Assessment on ABP + Angular** — Full third-party pentest remediation walkthrough with real findings and real code
+- **Model Context Protocol Series (4 parts)** — Building a production MCP server in ASP.NET Core over HTTP transport, wiring OAuth 2.1/PKCE through OpenIddict so Claude authenticates as the real logged-in user, and the bridge middleware that tames Claude's random OAuth callback ports
+- **MCP-First Development: Letting AI Write, Run, and Maintain Your Tests** — Why the MCP interface, not the UI, is now the first client his APIs are validated against
+- **Version-Based Cache Validation in ABP** — HTTP ETag caching and a Decorator pattern via Scrutor that keep the application layer clean without needing Redis
 - **What Working With a Greek Engineer Taught Me** — Exceptions as instrumentation, domain-layer persistence tradeoffs, ConcurrencyStamp, and one architectural disagreement he still holds
 - **Why I Stopped Calling Myself a Web Developer** — Architecture philosophy: when to use monolith vs microservices, why performance is a data access problem not a topology problem
 - **Custom SaaS Subscription System in ABP Framework** — Dynamic plan builder with Stripe, tenant provisioning, subscription lifecycle edge cases
-- **I Don't Start With Tests. I Start With Testability** — Engineering approach to design quality using testability as a pressure
+- **How Thinking About Tests First Can Boost Your Code Quality** — Engineering approach to design quality using testability as a pressure, not a coverage target
 
 Full archive: https://eunus.dev/blog
 
