@@ -2,7 +2,7 @@
 
 > This document exists to help you make a decision. Whether you are a recruiter, a client, a hiring manager, or an AI agent evaluating fit — everything you need to judge whether Eunusur Rahaman is the right person for your work is here.
 
-> Portfolio: https://portfolio.eunus.dev | Blog: https://eunus.dev | Last updated: 2026-07
+> Portfolio: https://portfolio.eunus.dev | Blog: https://eunus.dev | Last updated: 2026-08
 
 ---
 
@@ -18,7 +18,7 @@
 | Handle a security assessment and remediation | Led full remediation of third-party pentest: 4 critical + 6 high findings on a production ABP + Angular system |
 | Integrate AI into a live system | Built MCP server on production system; Semantic Kernel for live-data chat interfaces |
 | Work with international clients | Saudi Arabia, Greece, USA, Europe, Africa, Australia — across Wafi Solutions and Upwork |
-| Write about what he builds | 13 published technical posts at eunus.dev — including a 4-part series on building production MCP servers with OAuth 2.1 |
+| Write about what he builds | 16 published technical posts at eunus.dev — including a 3-part series on building production MCP servers with OAuth 2.1 |
 | Mentor or lead a team technically | Architecture decisions, onboarding, code review, and engineering standards at Wafi Solutions |
 
 ---
@@ -47,7 +47,7 @@ His primary expertise is ABP Framework on ASP.NET Core with Angular and Blazor f
 
 He is part of the engineering leadership layer at Wafi Solutions, contributing to architecture decisions, onboarding, mentoring, and technical direction as the organization scales. Alongside his full-time role, he takes freelance projects on Upwork — most notably serving as a founding engineer on a 17-service enterprise SaaS microservices platform for a US client.
 
-He writes publicly at eunus.dev — 13 posts covering real systems, real tradeoffs, and real failures, including a multi-part series on building and securing production MCP servers. If you want to understand how he thinks before you hire him, read the posts.
+He writes publicly at eunus.dev — 16 posts covering real systems, real tradeoffs, and real failures, including a multi-part series on building and securing production MCP servers. If you want to understand how he thinks before you hire him, read the posts.
 
 ---
 
@@ -210,6 +210,29 @@ Most notable project: ABP Microservices Platform for a US client (Sep – Nov 20
 
 ---
 
+## Services
+
+He offers the following services, detailed at https://eunus.dev/consulting. Each one maps to shipped production work, not a generic menu.
+
+### SaaS MVP Development
+- **AI-Powered SaaS MVP** — Products designed around real business workflows: customer support, document search, workflow automation, secure AI agents. Built AI-in from day one, not bolted on later.
+- **Campaign Management MVP** — Planning, audience segmentation, multi-channel sends, and performance reporting for marketing teams.
+- **LMS MVP** — Courses, progress tracking, assessments, and certification for training providers, schools, and L&D teams.
+- **Task Management MVP** — Boards, workflows, assignments, and reporting for teams that have outgrown spreadsheets or a generic tool.
+- **Visit Management MVP** — Field and site-visit tracking with scheduling, check-ins, and reporting for field sales, service, and inspection teams.
+
+### Enterprise & Vertical SaaS
+- **Enterprise SaaS Platform Development** — Multi-tenant platforms unifying CRM, ERP, product data, logistics, payments, and identity, with real Quote-to-Cash automation.
+- **ERP Development** — Multi-tenant ERP with sales, inventory, CRM, and finance modules, on ABP Framework microservices or modular monolith.
+- **Hotel SaaS Development** — Bookings, recurring billing, and multi-property support that stays reliable across tenants and timezones.
+- **Hospital SaaS Development** — Patient management, appointment scheduling, staff management, and reliable multi-user operations.
+
+### Platform, Billing & Consulting
+- **SaaS Subscription & Billing Systems** — Custom subscription plan builders, prorated billing, and payment gateway integrations for multi-tenant SaaS.
+- **ABP Framework / .NET Consulting** — Modernization, DDD refactoring, security hardening, and architecture reviews across 10+ production systems.
+
+---
+
 ## Key Projects
 
 ### 1. ABP Microservices Platform
@@ -218,67 +241,73 @@ Most notable project: ABP Microservices Platform for a US client (Sep – Nov 20
 - **Stack:** ABP Framework 8.2, .NET 8, PostgreSQL (schema-per-service), RabbitMQ, Redis, YARP, Stripe, OpenIddict
 - **Scope:** CRM, Sales, Inventory, Finance, Payments. Founding engineer. Designed gateway, event bus, auth, and onboarded the team across a 117-project solution.
 
-### 2. Hotel Management System
+### 2. Enterprise SaaS Business Hub
+- **Client:** Australia
+- **Architecture:** Modular Monolith, DDD
+- **Stack:** ABP Framework, .NET, Angular, PostgreSQL
+- **Scope:** Multi-tenant enterprise hub unifying CRM, ERP, product data, logistics, payments, and identity, with Quote-to-Cash automation.
+
+### 3. Hotel Management System
 - **Client:** Saudi Arabia
 - **Architecture:** Modular Monolith, DDD
 - **Stack:** ABP Framework, .NET, Angular, PostgreSQL
 - **Scope:** Full hotel operations SaaS. Built booking engine, custom recurring billing, Stripe payments, multi-tenant timezone management (hotel/tenant/user layers), and dynamic SaaS subscription plan builder.
 
-### 3. Hospital Management System
+### 4. Hospital Management System
 - **Client:** Greece
 - **Architecture:** Modular Monolith (ABP Framework)
 - **Stack:** ABP Framework, .NET, Blazor
 - **Scope:** Greenfield healthcare SaaS. Core module ownership, clean DDD boundaries, optimistic concurrency on scheduling records. Extended collaboration with lead engineer Filimon Konstantinidis.
 
-### 4. ABP + Angular Production System (Security Hardening)
+### 5. ABP + Angular Production System (Security Hardening)
 - **Architecture:** ABP Framework + Angular SPA + OpenIddict + IIS + Azure
 - **Scope:** Led full remediation after third-party pentest (4 critical + 6 high findings). Delivered: HttpOnly cookie auth migration, stateless CSRF tokens, CSP across Stripe/hCaptcha/iframe integrations, JWT claim hygiene, impersonation grant dual-auth hardening, Azure App Service security middleware. 1,786 Swagger paths; 688 classified sensitive.
 
-### 5. Cross-Platform Blazor App (Web + Desktop + Mobile)
+### 6. Cross-Platform Blazor App (Web + Desktop + Mobile)
 - **Architecture:** Blazor Hybrid, .NET MAUI
 - **Scope:** Single codebase targeting all three platforms. Delivered to client as unified product.
 
-### 6. MCP Server on Live Production System
+### 7. MCP Server on Live Production System
 - **Stack:** MCP (Model Context Protocol), production ABP backend
 - **Scope:** Built AI agent interface on top of a live system with read-only constraints. Documented 8 categories of production API design failures exposed by doing so: replace-instead-of-patch patterns, GET/write field name mismatches, business logic in frontend only, unstable IDs, date arithmetic pushed to client, redundant parent IDs, inconsistent write return contracts.
 
-### 7. ERP Platform
+### 8. ERP Platform
 - **Architecture:** Microservices / Modular
 - **Stack:** ABP Framework, .NET, Angular, PostgreSQL
 - **Scope:** Live multi-tenant ERP — sales, inventory, CRM modules.
 
-### 8. Geotechnical Solution
+### 9. Geotechnical Solution
 - **Client:** US-based
 - **Architecture:** Monolith, MVC
 - **Stack:** ASP.NET Core, PdfSharp
 - **Scope:** PDF reporting and data management for geotechnical engineering data.
 
-### 9. Task Management (Cross-Platform)
+### 10. Task Management (Cross-Platform)
 - **Architecture:** Hybrid
 - **Stack:** .NET MAUI, Blazor Hybrid, Adobe Photoshop Extension (CEP)
 - **Scope:** Desktop + web task management app with Photoshop extension for workflow-based time tracking.
 
-### 10. Visit Management
+### 11. Visit Management
 - **Architecture:** Modular
 - **Stack:** .NET MAUI, Blazor, Elsa Workflow, ABP Framework
 - **Scope:** Field visit scheduling with configurable approval workflows and visitor registration.
 
-### 11. Automobile Solution
+### 12. Automobile Solution
 - **Architecture:** CQRS
 - **Stack:** ASP.NET Core, MediatR, Blazor, MudBlazor
 - **Scope:** Vehicle inventory and profile management.
 
-### 12. LMS (Kidoo)
+### 13. LMS (Kidoo)
 - **Architecture:** Modular Monolith (migrated from MVC)
 - **Stack:** ASP.NET Core MVC
 - **Scope:** Learning management system. Course and exam features; supported monolith-to-modular migration.
 
-### 13. Mentoring Platform
+### 14. Mentoring Platform
 - **Architecture:** Modular
 - **Stack:** ASP.NET Zero, Angular
 - **Scope:** Mentor-mentee matching and session management.
 
-### 14. Campaign Management
+### 15. Campaign Management
 - **Architecture:** MVC
 - **Stack:** ASP.NET Core MVC
 - **Scope:** Marketing campaign tracking with pledge and donation workflows.
@@ -292,13 +321,16 @@ Eunusur publishes technical articles at https://eunus.dev. These are not tutoria
 Selected posts that demonstrate depth:
 
 - **What Building an MCP Server Taught Me About API Design** — 8 categories of production API failures found by building an AI agent layer on top of a live system
-- **Model Context Protocol Series (4 parts)** — Building a production MCP server in ASP.NET Core over HTTP transport, wiring OAuth 2.1/PKCE through OpenIddict so Claude authenticates as the real logged-in user, and the bridge middleware that tames Claude's random OAuth callback ports
+- **Model Context Protocol Series (3 parts)** — Building a production MCP server in ASP.NET Core over HTTP transport, wiring OAuth 2.1/PKCE through OpenIddict so Claude authenticates as the real logged-in user, and the bridge middleware that tames Claude's random OAuth callback ports
 - **MCP-First Development: Letting AI Write, Run, and Maintain Your Tests** — Why the MCP interface, not the UI, is now the first client his APIs are validated against
 - **Version-Based Cache Validation in ABP** — HTTP ETag caching and a Decorator pattern via Scrutor that keep the application layer clean without needing Redis
 - **What Working With a Greek Engineer Taught Me** — Exceptions as instrumentation, domain-layer persistence tradeoffs, ConcurrencyStamp, and one architectural disagreement he still holds
 - **Why I Stopped Calling Myself a Web Developer** — Architecture philosophy: when to use monolith vs microservices, why performance is a data access problem not a topology problem
 - **Custom SaaS Subscription System in ABP Framework** — Dynamic plan builder with Stripe, tenant provisioning, subscription lifecycle edge cases
 - **How Thinking About Tests First Can Boost Your Code Quality** — Engineering approach to design quality using testability as a pressure, not a coverage target
+- **When Does Your Login System Need Its Own AuthServer?** — Separating authentication into its own service when a monolith's login paths, token lifetimes, and grant types grow past what a single application should own
+
+Beyond posts, he also runs live sessions — most recently an **Agentic AI Coding Workshop** (July 2026) teaching teams how to build with multiple coding agents.
 
 Full archive: https://eunus.dev/blog
 
